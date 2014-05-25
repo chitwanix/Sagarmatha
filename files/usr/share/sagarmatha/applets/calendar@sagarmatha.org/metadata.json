@@ -1,0 +1,6 @@
+{
+ "uuid": "calendar@sagarmatha.org",
+ "name": "Calendar",
+ "description": "The Sagarmatha calendar applet",
+ "icon": "stock_calendar"
+}

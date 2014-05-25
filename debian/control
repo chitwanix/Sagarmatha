@@ -1,0 +1,133 @@
+Source: sagarmatha
+Section: gnome
+Priority: optional
+Maintainer: Chitwanix OS <root@chitwanix.com>
+Build-Depends: debhelper (>= 8),
+               dh-autoreconf,
+               python-dev,
+               gnome-pkg-tools (>= 0.11),
+               intltool,
+               libcjs-dev,
+               gvfs-backends,
+               gobject-introspection (>= 1.29.15),
+               gir1.2-json-1.0,
+               gnome-bluetooth (>= 3.1.0),
+               gnome-common,
+               libsagarmatha-desktop-dev (>= 1.0.0),
+               libcaribou-dev,
+               libcroco3-dev (>= 0.6.2),
+               libdbus-glib-1-dev,
+               libgconf2-dev,
+               libgirepository1.0-dev (>= 1.29.15),
+               libglib2.0-dev (>= 2.25.9),
+               libglib2.0-bin (>= 2.25.11),
+               libgnome-bluetooth-dev (>= 3.1.0),
+               libgnome-keyring-dev,
+               libgnome-menu-3-dev,
+               libgstreamer0.10-dev (>= 0.10.16),
+               libgtk-3-dev (>= 3.0.0),
+               libgudev-1.0-dev,
+               libnm-glib-dev (>= 0.8.999),
+               libstartup-notification0-dev (>= 0.11),
+               libmuffin-dev (>= 1.0.5),
+               librsvg2-dev,
+               libsoup2.4-dev,
+               libwnck-dev,
+               libclutter-1.0-dev (>= 1.7.5),
+               libxfixes-dev (>= 1:5.0),
+               libxss-dev,
+               libpulse-dev,
+               libcanberra-dev,
+               libpolkit-agent-1-dev (>= 0.100),
+               libjson-glib-dev (>= 0.13.2)
+Standards-Version: 3.9.1
+Homepage: http://sagarmatha.chitwanix.com
+
+Package: sagarmatha
+Architecture: any
+Depends: ${gir:Depends},
+         cjs,
+         ${shlibs:Depends},
+         ${misc:Depends},
+         sagarmatha-common (= ${source:Version}),
+         sagarmatha-translations,
+         sagarmatha-control-center | gnome-control-center,
+         caribou,
+         cups-pk-helper,
+         sagarmatha-settings-daemon,
+         sagarmatha-session,
+         sagarmatha-desktop-data (>= 1.0.0),
+         gnome-icon-theme-symbolic (>= 2.91),
+         ${icon-theme:Depends},
+         gir1.2-accountsservice-1.0,
+         gir1.2-gconf-2.0,
+         gir1.2-gkbd-3.0,
+         gir1.2-gnomebluetooth-1.0,
+         gir1.2-networkmanager-1.0,
+         gir1.2-polkit-1.0,
+         gir1.2-soup-2.4,
+         gir1.2-upowerglib-1.0,
+         gir1.2-gtkclutter-1.0,
+         gir1.2-javascriptcoregtk-3.0,
+         gir1.2-webkit-3.0,
+         python,
+         python-dbus,
+         python-gconf,
+         python-imaging,
+         python-opencv,
+         python-gtk2,
+         python-pam,
+         pkg-config,
+         mesa-utils,
+         python-lxml,
+         gkbd-capplet,
+         python-pyinotify,
+         metacity,
+         gnome-panel | tint2
+Recommends: gnome-themes-standard, gnome-terminal, nemo, sagarmatha-screensaver, gnome-session-bin, gir1.2-cjsdbus-1.0, sagarmatha-bluetooth
+Provides: notification-daemon, x-window-manager
+Description: Sagarmatha desktop
+ Sagarmatha redefines user interactions with the GNOME desktop.
+ In particular, it offers new paradigms for launching applications,
+ accessing documents, and organizing open windows in GNOME. Later, it
+ will introduce a new applets eco-system and offer new solutions for
+ other desktop features, such as notifications and contacts
+ management. Sagarmatha is intended to replace functions handled
+ by the GNOME Panel and by the window manager in previous versions of
+ GNOME. Sagarmatha has rich visual effects enabled by new
+ graphical technologies.
+
+Package: sagarmatha-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: sagarmatha (= ${binary:Version}),
+         ${misc:Depends}
+Description: Debugging symbols for the Sagarmatha desktop
+ Sagarmatha redefines user interactions with the Cinnamon and GNOME desktop.
+ In particular, it offers new paradigms for launching applications,
+ accessing documents, and organizing open windows in GNOME. Later, it
+ will introduce a new applets eco-system and offer new solutions for
+ other desktop features, such as notifications and contacts
+ management. Sagarmatha is intended to replace functions handled
+ by the GNOME Panel and by the window manager in previous versions of
+ GNOME. Sagarmatha has rich visual effects enabled by new
+ graphical technologies.
+ .
+ This package contains the debugging symbols.
+
+Package: sagarmatha-common
+Architecture: all
+Depends: ${misc:Depends}, python
+Description: Sagarmatha desktop (Common data files)
+ Sagarmatha redefines user interactions with the Cinnamon and GNOME desktop.
+ In particular, it offers new paradigms for launching applications,
+ accessing documents, and organizing open windows in GNOME. Later, it
+ will introduce a new applets eco-system and offer new solutions for
+ other desktop features, such as notifications and contacts
+ management. Sagarmatha is intended to replace functions handled
+ by the GNOME Panel and by the window manager in previous versions of
+ GNOME. Sagarmatha has rich visual effects enabled by new
+ graphical technologies.
+ .
+ This package contains the architecture independent files needed by Sagarmatha

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+rm -rf /usr/share/sagarmatha/js-backup
+mv /usr/share/sagarmatha/js /usr/share/sagarmatha/js-backup
+cp -R js /usr/share/sagarmatha/
+
+rm -rf /usr/share/sagarmatha/theme-backup
+mv /usr/share/sagarmatha/theme /usr/share/sagarmatha/theme-backup
+cp -R data/theme /usr/share/sagarmatha/
+
+cp data/org.sagarmatha.gschema.xml /usr/share/glib-2.0/schemas/
+glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+sudo rm -rf /usr/share/glib-2.0/schemas/org.sagarmatha.applets.*.gschema.xml
+sudo rm -rf /usr/share/glib-2.0/schemas/org.sagarmatha.desklets.*.gschema.xml
+sudo rm -rf /usr/share/glib-2.0/schemas/org.sagarmatha.extensions.*.gschema.xml
+sudo rm -rf /usr/share/sagarmatha/applets/*@sagarmatha.org
+sudo rm -rf /usr/share/sagarmatha/desklets/*@sagarmatha.org
+sudo rm -rf /usr/share/sagarmatha/extensions/*@sagarmatha.org
+sudo rm -rf /usr/lib/sagarmatha-settings
+sudo rm -rf /usr/lib/sagarmatha-menu-editor
+sudo cp -R files/usr /
+sudo cp -R files/etc /
+
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/

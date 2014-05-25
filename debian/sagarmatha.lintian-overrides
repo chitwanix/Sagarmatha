@@ -1,0 +1,4 @@
+# It's the only way we have to let sagarmatha find the private library it
+# links against through libsagarmatha.so
+sagarmatha: binary-or-shlib-defines-rpath usr/bin/sagarmatha /usr/lib/gnome-bluetooth
+sagarmatha: binary-or-shlib-defines-rpath ./usr/bin/sagarmatha /usr/lib/gnome-bluetooth

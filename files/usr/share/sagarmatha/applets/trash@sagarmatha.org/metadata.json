@@ -1,0 +1,7 @@
+{
+ "uuid": "trash@sagarmatha.org",
+ "name": "Trash",
+ "description": "Control the trash from the panel",
+ "icon": "user-trash",
+ "localedir": "/usr/share/locale"
+}

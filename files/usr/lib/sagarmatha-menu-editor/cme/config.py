@@ -1,0 +1,8 @@
+prefix="/usr"
+datadir="/usr/share"
+localedir=datadir+"/locale"
+libdir="/usr/lib"
+libexecdir="/usr/lib/sagarmatha-menu-editor"
+PACKAGE="sagarmatha-menu-editor"
+VERSION="1.6.1"
+GETTEXT_PACKAGE="sagarmatha"

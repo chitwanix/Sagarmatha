@@ -1,0 +1,7 @@
+{
+ "uuid": "window-list@sagarmatha.org",
+ "name": "Window list",
+ "description": "Main Sagarmatha window list",
+ "icon": "gnome-panel-window-list",
+ "role": "windowlist"
+}

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Sagarmatha
+Comment=This session logs you into Sagarmatha
+Exec=sagarmatha-session-sagarmatha
+TryExec=/usr/bin/sagarmatha
+Icon=/usr/share/mdm/html-themes/common/img/sessions/sagarmatha.svg
+Type=Application
+

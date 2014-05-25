@@ -1,0 +1,7 @@
+{
+ "uuid": "clock@sagarmatha.org",
+ "name": "Clock desklet",
+ "description": "A desklet that displays the time",
+ "icon": "stock_calendar",
+ "prevent-decorations": false
+}

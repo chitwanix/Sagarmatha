@@ -1,0 +1,6 @@
+{
+ "uuid": "power@sagarmatha.org",
+ "name": "Power Manager",
+ "description": "Sagarmatha power management applet",
+ "icon": "battery-full-charging"
+}

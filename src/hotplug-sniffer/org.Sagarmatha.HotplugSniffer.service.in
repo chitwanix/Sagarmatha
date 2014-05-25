@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.Sagarmatha.HotplugSniffer
+Exec=@pkglibexecdir@/sagarmatha-hotplug-sniffer

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Sagarmatha (Software Rendering)
+Comment=This session logs you into Sagarmatha (using software rendering)
+Exec=sagarmatha-session-sagarmatha2d
+TryExec=/usr/bin/sagarmatha2d
+Icon=/usr/share/mdm/html-themes/common/img/sessions/sagarmatha.svg
+Type=Application
+X-Ubuntu-Gettext-Domain=sagarmatha
+X-GNOME-Provides=sagarmatha2d
+

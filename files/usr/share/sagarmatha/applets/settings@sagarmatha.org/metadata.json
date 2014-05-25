@@ -1,0 +1,6 @@
+{
+ "uuid": "settings@sagarmatha.org",
+ "name": "Settings Applet",
+ "description": "Sagarmatha Settings",
+ "icon": "preferences-system"
+}

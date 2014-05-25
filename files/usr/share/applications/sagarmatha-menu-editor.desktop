@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Sagarmatha Menu Editor
+Comment=Edit the entries of the Sagarmatha menu applet
+Exec=sagarmatha-menu-editor
+Icon=alacarte
+Terminal=false
+Type=Application
+NoDisplay=true
+Categories=GNOME;GTK;Settings;DesktopSettings;
+StartupNotify=false

@@ -1,0 +1,8 @@
+#!/bin/bash
+xgettext --language=C --keyword=_ --output=sagarmatha-source.pot generate_additional_files.py src/*.c src/*/*.c js/*/*.js files/usr/share/sagarmatha/applets/*/applet.js files/usr/share/sagarmatha/desklets/*/desklet.js files/usr/lib/sagarmatha-settings/*.py files/usr/lib/sagarmatha-settings-users/*.py files/usr/lib/sagarmatha-settings/modules/*.py files/usr/lib/sagarmatha-settings/bin/ExtensionCore.py files/usr/lib/sagarmatha-settings/bin/eyedropper.py files/usr/lib/sagarmatha-settings/bin/Spices.py files/usr/lib/sagarmatha-settings/bin/XletSettings.py files/usr/lib/sagarmatha-settings/bin/XletSettingsWidgets.py files/usr/share/sagarmatha/desklets/*/*.py files/usr/lib/sagarmatha-screensaver-lock-dialog/*.py files/usr/bin/sagarmatha-launcher
+cd files
+usr/lib/sagarmatha-json-makepot/sagarmatha-json-makepot.py ../sagarmatha-json
+cd ..
+msguniq sagarmatha-json.pot > uniq-sagarmatha-json.pot
+msgcat sagarmatha-source.pot uniq-sagarmatha-json.pot > sagarmatha.pot
+rm -f sagarmatha-source.pot sagarmatha-json.pot uniq-sagarmatha-json.pot

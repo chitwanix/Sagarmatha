@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm -rf /usr/share/sagarmatha/js
+mv /usr/share/sagarmatha/js-backup /usr/share/sagarmatha/js

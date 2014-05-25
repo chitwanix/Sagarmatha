@@ -1,0 +1,5 @@
+[Sagarmatha Session]
+Name=Sagarmatha (Software Rendering)
+RequiredComponents=sagarmatha;sagarmatha-settings-daemon;sagarmatha-screensaver;sagarmatha-fallback-mount-helper;nemo-autostart;nm-applet;
+DesktopName=GNOME
+

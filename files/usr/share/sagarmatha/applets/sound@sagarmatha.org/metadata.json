@@ -1,0 +1,6 @@
+{
+ "uuid": "sound@sagarmatha.org",
+ "name": "Sound",
+ "description": "A Sagarmatha applet to control sound and music",
+ "icon": "stock_volume"
+}

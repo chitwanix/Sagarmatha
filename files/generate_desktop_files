@@ -1,0 +1,59 @@
+#!/usr/bin/python
+
+import commands, os
+
+sourceFile = "usr/lib/sagarmatha-settings/sagarmatha-settings.py"
+
+menuName = commands.getoutput("cat " + sourceFile + " | grep menuName")
+menuName = menuName.replace("menuName", "")
+menuName = menuName.replace("=", "")
+menuName = menuName.replace("_(", "")
+menuName = menuName.replace("\"", "")
+menuName = menuName.replace(")", "")
+menuName = menuName.strip()
+
+menuComment = commands.getoutput("cat " + sourceFile + " | grep menuComment")
+menuComment = menuComment.replace("menuComment", "")
+menuComment = menuComment.replace("=", "")
+menuComment = menuComment.replace("_(", "")
+menuComment = menuComment.replace("\"", "")
+menuComment = menuComment.replace(")", "")
+menuComment = menuComment.strip()
+
+desktopFile = open("usr/share/applications/sagarmatha-settings.desktop", "w")
+desktopFile.writelines("""[Desktop Entry]
+Name=Sagarmatha Settings
+""")
+
+import gettext
+gettext.install("sagarmatha", "/usr/share/sagarmatha/locale")
+
+for directory in os.listdir("/usr/share/sagarmatha/locale"):
+	if os.path.isdir(os.path.join("/usr/share/sagarmatha/locale", directory)):
+		try:
+			language = gettext.translation('sagarmatha-settings', "/usr/share/sagarmatha/locale", languages=[directory])
+			language.install()
+			desktopFile.writelines("Name[%s]=%s\n" % (directory, _(menuName)))
+		except:
+			pass
+
+desktopFile.writelines("Comment=Fine-tune Sagarmatha settings\n")
+
+for directory in os.listdir("/usr/share/sagarmatha/locale"):
+	if os.path.isdir(os.path.join("/usr/share/sagarmatha/locale", directory)):
+		try:
+			language = gettext.translation('sagarmatha-settings', "/usr/share/sagarmatha/locale", languages=[directory])
+			language.install()			
+			desktopFile.writelines("Comment[%s]=%s\n" % (directory, _(menuComment)))
+		except:
+			pass
+
+desktopFile.writelines("""Exec=sagarmatha-settings
+Icon=preferences-system
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=GNOME;GTK;Settings;DesktopSettings;
+StartupNotify=false
+""")
+
