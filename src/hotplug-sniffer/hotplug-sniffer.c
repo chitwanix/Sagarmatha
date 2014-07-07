@@ -116,7 +116,7 @@ sniff_async_ready_cb (GObject *source,
   gchar **types;
   GError *error = NULL;
 
-  types = sagarmatha_mime_sniffer_sniff_finish (CINNAMON_MIME_SNIFFER (source),
+  types = sagarmatha_mime_sniffer_sniff_finish (SAGARMATHA_MIME_SNIFFER (source),
                                            res, &error);
 
   if (error != NULL)

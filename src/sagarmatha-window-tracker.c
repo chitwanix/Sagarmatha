@@ -84,7 +84,7 @@ sagarmatha_window_tracker_get_property (GObject    *gobject,
                             GValue     *value,
                             GParamSpec *pspec)
 {
-  SagarmathaWindowTracker *tracker = CINNAMON_WINDOW_TRACKER (gobject);
+  SagarmathaWindowTracker *tracker = SAGARMATHA_WINDOW_TRACKER (gobject);
 
   switch (prop_id)
     {
@@ -110,18 +110,18 @@ sagarmatha_window_tracker_class_init (SagarmathaWindowTrackerClass *klass)
                                    g_param_spec_object ("focus-app",
                                                         "Focus App",
                                                         "Focused application",
-                                                        CINNAMON_TYPE_APP,
+                                                        SAGARMATHA_TYPE_APP,
                                                         G_PARAM_READABLE));
 
   signals[STARTUP_SEQUENCE_CHANGED] = g_signal_new ("startup-sequence-changed",
-                                   CINNAMON_TYPE_WINDOW_TRACKER,
+                                   SAGARMATHA_TYPE_WINDOW_TRACKER,
                                    G_SIGNAL_RUN_LAST,
                                    0,
                                    NULL, NULL,
                                    g_cclosure_marshal_VOID__BOXED,
-                                   G_TYPE_NONE, 1, CINNAMON_TYPE_STARTUP_SEQUENCE);
+                                   G_TYPE_NONE, 1, SAGARMATHA_TYPE_STARTUP_SEQUENCE);
   signals[TRACKED_WINDOWS_CHANGED] = g_signal_new ("tracked-windows-changed",
-                                                   CINNAMON_TYPE_WINDOW_TRACKER,
+                                                   SAGARMATHA_TYPE_WINDOW_TRACKER,
                                                    G_SIGNAL_RUN_LAST,
                                                    0,
                                                    NULL, NULL,
@@ -433,7 +433,7 @@ on_wm_class_changed (MetaWindow  *window,
                      GParamSpec  *pspec,
                      gpointer     user_data)
 {
-  SagarmathaWindowTracker *self = CINNAMON_WINDOW_TRACKER (user_data);
+  SagarmathaWindowTracker *self = SAGARMATHA_WINDOW_TRACKER (user_data);
 
   /* It's simplest to just treat this as a remove + add. */
   disassociate_window (self, window);
@@ -471,7 +471,7 @@ sagarmatha_window_tracker_on_window_added (MetaWorkspace   *workspace,
                                    MetaWindow      *window,
                                    gpointer         user_data)
 {
-  SagarmathaWindowTracker *self = CINNAMON_WINDOW_TRACKER (user_data);
+  SagarmathaWindowTracker *self = SAGARMATHA_WINDOW_TRACKER (user_data);
 
   track_window (self, window);
 }
@@ -506,7 +506,7 @@ sagarmatha_window_tracker_on_window_removed (MetaWorkspace   *workspace,
                                      MetaWindow      *window,
                                      gpointer         user_data)
 {
-  disassociate_window (CINNAMON_WINDOW_TRACKER (user_data), window);
+  disassociate_window (SAGARMATHA_WINDOW_TRACKER (user_data), window);
 }
 
 static void
@@ -537,7 +537,7 @@ sagarmatha_window_tracker_on_n_workspaces_changed (MetaScreen    *screen,
                                            GParamSpec    *pspec,
                                            gpointer       user_data)
 {
-  SagarmathaWindowTracker *self = CINNAMON_WINDOW_TRACKER (user_data);
+  SagarmathaWindowTracker *self = SAGARMATHA_WINDOW_TRACKER (user_data);
   GList *workspaces, *iter;
 
   workspaces = meta_screen_get_workspaces (screen);
@@ -615,7 +615,7 @@ sagarmatha_window_tracker_init (SagarmathaWindowTracker *self)
 static void
 sagarmatha_window_tracker_finalize (GObject *object)
 {
-  SagarmathaWindowTracker *self = CINNAMON_WINDOW_TRACKER (object);
+  SagarmathaWindowTracker *self = SAGARMATHA_WINDOW_TRACKER (object);
 
   g_hash_table_destroy (self->window_to_app);
   g_hash_table_destroy (self->launched_pid_to_app);
@@ -869,7 +869,7 @@ sagarmatha_window_tracker_get_default ()
   static SagarmathaWindowTracker *instance;
 
   if (instance == NULL)
-    instance = g_object_new (CINNAMON_TYPE_WINDOW_TRACKER, NULL);
+    instance = g_object_new (SAGARMATHA_TYPE_WINDOW_TRACKER, NULL);
 
   return instance;
 }

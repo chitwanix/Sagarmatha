@@ -28,7 +28,7 @@
 
 extern GType gnome_sagarmatha_plugin_get_type (void);
 
-#define CINNAMON_DBUS_SERVICE "org.Sagarmatha"
+#define SAGARMATHA_DBUS_SERVICE "org.Sagarmatha"
 #define MAGNIFIER_DBUS_SERVICE "org.gnome.Magnifier"
 
 static void
@@ -57,7 +57,7 @@ sagarmatha_dbus_init (gboolean replace)
   if (replace)
     request_name_flags |= DBUS_NAME_FLAG_REPLACE_EXISTING;
   if (!dbus_g_proxy_call (bus, "RequestName", &error,
-                          G_TYPE_STRING, CINNAMON_DBUS_SERVICE,
+                          G_TYPE_STRING, SAGARMATHA_DBUS_SERVICE,
                           G_TYPE_UINT, request_name_flags,
                           G_TYPE_INVALID,
                           G_TYPE_UINT, &request_name_result,
@@ -70,7 +70,7 @@ sagarmatha_dbus_init (gboolean replace)
         || request_name_result == DBUS_REQUEST_NAME_REPLY_ALREADY_OWNER))
     {
       g_printerr ("%s already exists on bus and --replace not specified\n",
-                  CINNAMON_DBUS_SERVICE);
+                  SAGARMATHA_DBUS_SERVICE);
       exit (1);
     }
 
@@ -255,7 +255,7 @@ main (int argc, char **argv)
   g_setenv ("GJS_DEBUG_OUTPUT", "stderr", TRUE);
   g_setenv ("GJS_DEBUG_TOPICS", "JS ERROR;JS LOG", TRUE);
 
-  g_setenv ("CINNAMON_VERSION", VERSION, TRUE);
+  g_setenv ("SAGARMATHA_VERSION", VERSION, TRUE);
 
 
   center_pointer_on_screen();
@@ -264,7 +264,7 @@ main (int argc, char **argv)
   sagarmatha_a11y_init ();
   sagarmatha_perf_log_init ();
 
-  g_irepository_prepend_search_path (CINNAMON_PKGLIBDIR);
+  g_irepository_prepend_search_path (SAGARMATHA_PKGLIBDIR);
 #if HAVE_BLUETOOTH
   g_irepository_prepend_search_path (BLUETOOTH_DIR);
 #endif
@@ -282,7 +282,7 @@ main (int argc, char **argv)
 
   ecode = meta_run ();
 
-  if (g_getenv ("CINNAMON_ENABLE_CLEANUP"))
+  if (g_getenv ("SAGARMATHA_ENABLE_CLEANUP"))
     {
       g_printerr ("Doing final cleanup...\n");
       g_object_unref (sagarmatha_global_get ());

@@ -1,19 +1,19 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
 
-#ifndef __CINNAMON_TRAY_MANAGER_H__
-#define __CINNAMON_TRAY_MANAGER_H__
+#ifndef __SAGARMATHA_TRAY_MANAGER_H__
+#define __SAGARMATHA_TRAY_MANAGER_H__
 
 #include <clutter/clutter.h>
 #include "st.h"
 
 G_BEGIN_DECLS
 
-#define CINNAMON_TYPE_TRAY_MANAGER			(sagarmatha_tray_manager_get_type ())
-#define CINNAMON_TRAY_MANAGER(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CINNAMON_TYPE_TRAY_MANAGER, SagarmathaTrayManager))
-#define CINNAMON_TRAY_MANAGER_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_TRAY_MANAGER, SagarmathaTrayManagerClass))
-#define CINNAMON_IS_TRAY_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CINNAMON_TYPE_TRAY_MANAGER))
-#define CINNAMON_IS_TRAY_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_TRAY_MANAGER))
-#define CINNAMON_TRAY_MANAGER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_TRAY_MANAGER, SagarmathaTrayManagerClass))
+#define SAGARMATHA_TYPE_TRAY_MANAGER			(sagarmatha_tray_manager_get_type ())
+#define SAGARMATHA_TRAY_MANAGER(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), SAGARMATHA_TYPE_TRAY_MANAGER, SagarmathaTrayManager))
+#define SAGARMATHA_TRAY_MANAGER_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_TRAY_MANAGER, SagarmathaTrayManagerClass))
+#define SAGARMATHA_IS_TRAY_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), SAGARMATHA_TYPE_TRAY_MANAGER))
+#define SAGARMATHA_IS_TRAY_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_TRAY_MANAGER))
+#define SAGARMATHA_TRAY_MANAGER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_TRAY_MANAGER, SagarmathaTrayManagerClass))
 	
 typedef struct _SagarmathaTrayManager        SagarmathaTrayManager;
 typedef struct _SagarmathaTrayManagerPrivate SagarmathaTrayManagerPrivate;
@@ -48,4 +48,4 @@ void              sagarmatha_tray_manager_redisplay (SagarmathaTrayManager *mana
 
 G_END_DECLS
 
-#endif /* __CINNAMON_TRAY_MANAGER_H__ */
+#endif /* __SAGARMATHA_TRAY_MANAGER_H__ */

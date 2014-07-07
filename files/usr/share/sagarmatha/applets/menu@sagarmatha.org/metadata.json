@@ -1,6 +1,8 @@
 {
- "uuid": "menu@sagarmatha.org",
- "name": "Menu",
- "description": "Main Sagarmatha menu",
- "icon": "applications-other"
+    "last-edited": "1389331649",
+    "description": "Sagarmatha Menu 1.0",
+    "uuid": "menu@sagarmatha.org",
+    "name": "Sagarmatha Menu",
+    "version": "1.0.0",
+    "icon": "applications-other"
 }

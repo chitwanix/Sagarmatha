@@ -1,3 +1,4 @@
+
 <schemalist>
   <schema id="org.sagarmatha" path="/org/sagarmatha/"
           gettext-domain="@GETTEXT_PACKAGE@">
@@ -22,7 +23,7 @@
     </key>
     
     <key name="enabled-applets" type="as">
-      <default>['panel1:left:0:menu@sagarmatha.org', 'panel1:left:1:show-desktop@sagarmatha.org', 'panel1:left:2:panel-launchers@sagarmatha.org', 'panel1:left:3:window-list@sagarmatha.org', 'panel1:right:0:notifications@sagarmatha.org', 'panel1:right:1:user@sagarmatha.org', 'panel1:right:2:removable-drives@sagarmatha.org', 'panel1:right:3:keyboard@sagarmatha.org', 'panel1:right:4:bluetooth@sagarmatha.org', 'panel1:right:5:network@sagarmatha.org', 'panel1:right:6:sound@sagarmatha.org', 'panel1:right:7:power@sagarmatha.org', 'panel1:right:8:systray@sagarmatha.org', 'panel1:right:9:calendar@sagarmatha.org', 'panel1:right:10:windows-quick-list@sagarmatha.org']</default>
+      <default>['panel1:left:0:menu@sagarmatha.org', 'panel1:left:1:show-desktop@sagarmatha.org', 'panel1:left:2:panel-launchers@sagarmatha.org', 'panel1:left:3:window-list@sagarmatha.org', 'panel1:right:0:notifications@sagarmatha.org', 'panel1:right:1:user@sagarmatha.org', 'panel1:right:2:removable-drives@sagarmatha.org', 'panel1:right:3:keyboard@sagarmatha.org', 'panel1:right:4:bluetooth@sagarmatha.org', 'panel1:right:5:network@sagarmatha.org', 'panel1:right:6:brightness@sagarmatha.org', 'panel1:right:7:a11y@sagarmatha.org', 'panel1:right:8:sound@sagarmatha.org', 'panel1:right:9:power@sagarmatha.org', 'panel1:right:10:systray@sagarmatha.org', 'panel1:right:11:calendar@sagarmatha.org', 'panel1:right:12:windows-quick-list@sagarmatha.org', 'panel1:right:13:force-quit@sagarmatha.org']</default>
       <_summary>Uuids of applets to enable</_summary>
       <_description>
         Sagarmatha applets have a uuid property; this key lists applets
@@ -362,7 +363,7 @@
     </key>
 
     <key name="favorite-apps" type="as">
-      <default>[ 'firefox.desktop', 'chitwanixInstall.desktop', 'sagarmatha-settings.desktop', 'xchat.desktop', 'gnome-terminal.desktop', 'nemo.desktop' ]</default>
+      <default>[ 'firefox.desktop', 'vlc.desktop', 'sagarmatha-settings.desktop', 'xchat.desktop', 'gnome-terminal.desktop', 'libreoffice.desktop' ]</default>
       <_summary>List of desktop file IDs for favorite applications</_summary>
       <_description>
         The applications corresponding to these identifiers

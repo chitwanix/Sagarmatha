@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_APP_SYSTEM_H__
-#define __CINNAMON_APP_SYSTEM_H__
+#ifndef __SAGARMATHA_APP_SYSTEM_H__
+#define __SAGARMATHA_APP_SYSTEM_H__
 
 #include <gio/gio.h>
 #include <clutter/clutter.h>
@@ -10,12 +10,12 @@
 
 #include "sagarmatha-app.h"
 
-#define CINNAMON_TYPE_APP_SYSTEM                 (sagarmatha_app_system_get_type ())
-#define CINNAMON_APP_SYSTEM(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), CINNAMON_TYPE_APP_SYSTEM, SagarmathaAppSystem))
-#define CINNAMON_APP_SYSTEM_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_APP_SYSTEM, SagarmathaAppSystemClass))
-#define CINNAMON_IS_APP_SYSTEM(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CINNAMON_TYPE_APP_SYSTEM))
-#define CINNAMON_IS_APP_SYSTEM_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_APP_SYSTEM))
-#define CINNAMON_APP_SYSTEM_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_APP_SYSTEM, SagarmathaAppSystemClass))
+#define SAGARMATHA_TYPE_APP_SYSTEM                 (sagarmatha_app_system_get_type ())
+#define SAGARMATHA_APP_SYSTEM(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), SAGARMATHA_TYPE_APP_SYSTEM, SagarmathaAppSystem))
+#define SAGARMATHA_APP_SYSTEM_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_APP_SYSTEM, SagarmathaAppSystemClass))
+#define SAGARMATHA_IS_APP_SYSTEM(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), SAGARMATHA_TYPE_APP_SYSTEM))
+#define SAGARMATHA_IS_APP_SYSTEM_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_APP_SYSTEM))
+#define SAGARMATHA_APP_SYSTEM_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_APP_SYSTEM, SagarmathaAppSystemClass))
 
 typedef struct _SagarmathaAppSystem SagarmathaAppSystem;
 typedef struct _SagarmathaAppSystemClass SagarmathaAppSystemClass;
@@ -74,4 +74,4 @@ GSList         *sagarmatha_app_system_search_settings           (SagarmathaAppSy
 SagarmathaApp       *sagarmatha_app_system_lookup_setting            (SagarmathaAppSystem *system,
                                                             const char     *id);
 
-#endif /* __CINNAMON_APP_SYSTEM_H__ */
+#endif /* __SAGARMATHA_APP_SYSTEM_H__ */

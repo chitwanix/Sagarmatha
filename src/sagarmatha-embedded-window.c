@@ -61,7 +61,7 @@ struct _SagarmathaEmbeddedWindowPrivate {
 static void
 sagarmatha_embedded_window_show (GtkWidget *widget)
 {
-  SagarmathaEmbeddedWindow *window = CINNAMON_EMBEDDED_WINDOW (widget);
+  SagarmathaEmbeddedWindow *window = SAGARMATHA_EMBEDDED_WINDOW (widget);
   GtkWidgetClass *widget_class;
 
   /* Skip GtkWindow, but run the default GtkWidget handling which
@@ -82,7 +82,7 @@ sagarmatha_embedded_window_show (GtkWidget *widget)
 static void
 sagarmatha_embedded_window_hide (GtkWidget *widget)
 {
-  SagarmathaEmbeddedWindow *window = CINNAMON_EMBEDDED_WINDOW (widget);
+  SagarmathaEmbeddedWindow *window = SAGARMATHA_EMBEDDED_WINDOW (widget);
 
   clutter_actor_queue_relayout (CLUTTER_ACTOR (window->priv->actor));
 
@@ -92,7 +92,7 @@ sagarmatha_embedded_window_hide (GtkWidget *widget)
 static void
 sagarmatha_embedded_window_realize (GtkWidget *widget)
 {
-  SagarmathaEmbeddedWindow *window = CINNAMON_EMBEDDED_WINDOW (widget);
+  SagarmathaEmbeddedWindow *window = SAGARMATHA_EMBEDDED_WINDOW (widget);
 
   GTK_WIDGET_CLASS (sagarmatha_embedded_window_parent_class)->realize (widget);
 
@@ -124,7 +124,7 @@ sagarmatha_embedded_window_configure_event (GtkWidget         *widget,
 static void
 sagarmatha_embedded_window_check_resize (GtkContainer *container)
 {
-  SagarmathaEmbeddedWindow *window = CINNAMON_EMBEDDED_WINDOW (container);
+  SagarmathaEmbeddedWindow *window = SAGARMATHA_EMBEDDED_WINDOW (container);
 
   /* Check resize is called when a resize is queued on something
    * inside the GtkWindow; we need to make sure that in response
@@ -142,7 +142,7 @@ sagarmatha_embedded_window_set_property (GObject         *object,
                                     const GValue    *value,
                                     GParamSpec      *pspec)
 {
-  SagarmathaEmbeddedWindow *window = CINNAMON_EMBEDDED_WINDOW (object);
+  SagarmathaEmbeddedWindow *window = SAGARMATHA_EMBEDDED_WINDOW (object);
 
   switch (prop_id)
     {
@@ -213,7 +213,7 @@ sagarmatha_embedded_window_class_init (SagarmathaEmbeddedWindowClass *klass)
 static void
 sagarmatha_embedded_window_init (SagarmathaEmbeddedWindow *window)
 {
-  window->priv = G_TYPE_INSTANCE_GET_PRIVATE (window, CINNAMON_TYPE_EMBEDDED_WINDOW,
+  window->priv = G_TYPE_INSTANCE_GET_PRIVATE (window, SAGARMATHA_TYPE_EMBEDDED_WINDOW,
                                               SagarmathaEmbeddedWindowPrivate);
 }
 
@@ -226,7 +226,7 @@ _sagarmatha_embedded_window_set_actor (SagarmathaEmbeddedWindow  *window,
                                   SagarmathaGtkEmbed        *actor)
 
 {
-  g_return_if_fail (CINNAMON_IS_EMBEDDED_WINDOW (window));
+  g_return_if_fail (SAGARMATHA_IS_EMBEDDED_WINDOW (window));
 
   window->priv->actor = actor;
 
@@ -245,7 +245,7 @@ _sagarmatha_embedded_window_allocate (SagarmathaEmbeddedWindow *window,
 {
   GtkAllocation allocation;
 
-  g_return_if_fail (CINNAMON_IS_EMBEDDED_WINDOW (window));
+  g_return_if_fail (SAGARMATHA_IS_EMBEDDED_WINDOW (window));
 
   if (window->priv->position.x == x &&
       window->priv->position.y == y &&
@@ -273,7 +273,7 @@ _sagarmatha_embedded_window_allocate (SagarmathaEmbeddedWindow *window,
 void
 _sagarmatha_embedded_window_realize (SagarmathaEmbeddedWindow *window)
 {
-  g_return_if_fail (CINNAMON_IS_EMBEDDED_WINDOW (window));
+  g_return_if_fail (SAGARMATHA_IS_EMBEDDED_WINDOW (window));
 
   if (gtk_widget_get_visible (GTK_WIDGET (window)))
     gtk_widget_map (GTK_WIDGET (window));
@@ -282,7 +282,7 @@ _sagarmatha_embedded_window_realize (SagarmathaEmbeddedWindow *window)
 void
 _sagarmatha_embedded_window_unrealize (SagarmathaEmbeddedWindow *window)
 {
-  g_return_if_fail (CINNAMON_IS_EMBEDDED_WINDOW (window));
+  g_return_if_fail (SAGARMATHA_IS_EMBEDDED_WINDOW (window));
 
   gtk_widget_unmap (GTK_WIDGET (window));
 }
@@ -293,7 +293,7 @@ _sagarmatha_embedded_window_unrealize (SagarmathaEmbeddedWindow *window)
 GtkWidget *
 sagarmatha_embedded_window_new (ClutterStage *stage)
 {
-  return g_object_new (CINNAMON_TYPE_EMBEDDED_WINDOW,
+  return g_object_new (SAGARMATHA_TYPE_EMBEDDED_WINDOW,
                        "stage", stage,
                        NULL);
 }

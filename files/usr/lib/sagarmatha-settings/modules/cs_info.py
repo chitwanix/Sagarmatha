@@ -83,8 +83,8 @@ def createSystemInfos():
         infos.append((_("Operating System"), title))    
     else:
         infos.append((_("Operating System"), dname + " " + dversion +  " '" + dsuffix.title() + "' (" + arch + ")"))    
-    if 'CINNAMON_VERSION' in os.environ:            
-        infos.append((_("Sagarmatha Version"), os.environ['CINNAMON_VERSION']))
+    if 'SAGARMATHA_VERSION' in os.environ:            
+        infos.append((_("Sagarmatha Version"), os.environ['SAGARMATHA_VERSION']))
     infos.append((_("Linux Kernel"), platform.release()))
     infos.append((_("Processor"), processorName))
     if memunit == "kB":

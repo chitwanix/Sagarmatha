@@ -53,7 +53,7 @@ struct _SagarmathaMountOperationPrivate {
 static void
 sagarmatha_mount_operation_init (SagarmathaMountOperation *self)
 {
-  self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, CINNAMON_TYPE_MOUNT_OPERATION,
+  self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, SAGARMATHA_TYPE_MOUNT_OPERATION,
                                             SagarmathaMountOperationPrivate);
 }
 
@@ -81,7 +81,7 @@ sagarmatha_mount_operation_show_processes (GMountOperation *operation,
                                       GArray          *processes,
                                       const gchar     *choices[])
 {
-  SagarmathaMountOperation *self = CINNAMON_MOUNT_OPERATION (operation);
+  SagarmathaMountOperation *self = SAGARMATHA_MOUNT_OPERATION (operation);
 
   if (self->priv->pids != NULL)
     {
@@ -103,7 +103,7 @@ sagarmatha_mount_operation_show_processes (GMountOperation *operation,
 static void
 sagarmatha_mount_operation_finalize (GObject *obj)
 {
-  SagarmathaMountOperation *self = CINNAMON_MOUNT_OPERATION (obj);
+  SagarmathaMountOperation *self = SAGARMATHA_MOUNT_OPERATION (obj);
 
   g_strfreev (self->priv->choices);
   g_free (self->priv->message);
@@ -145,7 +145,7 @@ sagarmatha_mount_operation_class_init (SagarmathaMountOperationClass *klass)
 GMountOperation *
 sagarmatha_mount_operation_new (void)
 {
-  return g_object_new (CINNAMON_TYPE_MOUNT_OPERATION, NULL);
+  return g_object_new (SAGARMATHA_TYPE_MOUNT_OPERATION, NULL);
 }
 
 /**

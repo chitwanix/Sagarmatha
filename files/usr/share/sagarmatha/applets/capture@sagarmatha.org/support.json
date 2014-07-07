@@ -1,0 +1,87 @@
+{
+   "camera": {
+      "sagarmatha": {
+         "enabled": true,
+         "title": "Sagarmatha Screenshot"
+      },
+      "gnome-screenshot": {
+         "enabled": true,
+         "title": "Default",
+         "supported": {
+            "area": "--area",
+            "current-window": "-d {DELAY} --window",
+            "screen": "-d {DELAY}"
+         },
+         "custom": {
+            "Interactive": "gnome-screenshot -i"
+         }
+      },
+      "shutter": {
+         "enabled": true,
+         "title": "Shutter",
+         "-cursor-on": "-c",
+         "-cursor-off": "-C",
+         "-append": "-p test -e {CURSOR} -d {DELAY} --min_at_startup --disable_systray -e",
+         "supported": {
+            "menu": "--menu",
+            "tooltip": "--tooltip",
+            "window-section": "--section",
+            "area": "--select",
+            "current-window": "--active",
+            "window": "--window",
+            "screen": "--full"
+         }
+      },
+      "xwd": {
+         "enabled": true,
+         "title": "XWD",
+         "-append": " | convert - {DIRECTORY}/{FILENAME}.png",
+         "supported": {},
+         "custom": {
+            "Window": "#DC_WINDOW_HELPER# bash -c \"xwd -id {X_WINDOW} | convert - {DIRECTORY}/{FILENAME}.png\"",
+            "Screen": "bash -c \"xwd -root | convert - {DIRECTORY}/{FILENAME}.png\""
+         }
+      },
+      "import": {
+         "enabled": true,
+         "title": "ImageMagick",
+         "supported": {},
+         "custom": {
+            "Window": "#DC_WINDOW_HELPER# import -window root -crop {WIDTH}x{HEIGHT}+{X}+{Y} {DIRECTORY}/{FILENAME}.png",
+            "Area": "#DC_AREA_HELPER# import -window root -crop {WIDTH}x{HEIGHT}+{X}+{Y} {DIRECTORY}/{FILENAME}.png",
+            "Root window": "import -window root {DIRECTORY}/{FILENAME}.png",
+            "Screen": "import -window root -display :0.0 -screen {DIRECTORY}/{FILENAME}.png"
+         }
+      }
+   },
+   "recorder": {
+      "sagarmatha": {
+        "title": "Sagarmatha Recorder",
+        "enabled": true
+      },
+      "ffmpeg": {
+        "title": "FFmpeg",
+        "enabled": true,
+        "-sound-on": "-f alsa -ac 2 -i pulse",
+        "-sound-off": "",
+        "custom": {
+          "Area (Window)": "#DC_WINDOW_HELPER# bash -c \"ffmpeg {SOUND} -f x11grab -s {WIDTH}x{HEIGHT} -r 30 -qscale 1 -i :0.0+{X},{Y} {DIRECTORY}/{FILENAME}.mkv\"",
+          "Area (Select)": "#DC_AREA_HELPER# bash -c \"ffmpeg {SOUND} -f x11grab -s {WIDTH}x{HEIGHT} -r 30 -qscale 1 -i :0.0+{X},{Y} {DIRECTORY}/{FILENAME}.mkv\"",
+          "Screen": "bash -c \"ffmpeg {SOUND} -f x11grab -s {SCREEN_WIDTH}x{SCREEN_HEIGHT} -r 30 -qscale 1 -i :0.0 {DIRECTORY}/{FILENAME}.mkv\"",
+          "Stop recording": "killall ffmpeg"
+        }
+      },
+      "gtk-recordmydesktop": {
+        "title": "Record My Desktop",
+        "enabled": true,
+        "-sound-on": "",
+        "-sound-off": "--no-sound",
+        "custom": {
+          "Open GUI": "gtk-recordmydesktop",
+          "Area (Window)": "#DC_WINDOW_HELPER# recordmydesktop {SOUND} -x {X} -y {Y} --width {WIDTH} --height {HEIGHT} -o {DIRECTORY}/{FILENAME}.ogv",
+          "Area (Select)": "#DC_AREA_HELPER# recordmydesktop {SOUND} -x {X} -y {Y} --width {WIDTH} --height {HEIGHT} -o {DIRECTORY}/{FILENAME}.ogv",
+          "Stop recording": "killall recordmydesktop"
+        }
+      }
+   }
+}

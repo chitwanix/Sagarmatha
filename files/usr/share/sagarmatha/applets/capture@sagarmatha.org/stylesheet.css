@@ -1,0 +1,117 @@
+StBoxLayout.applet-box.desktop-capture StBin {
+   min-width: 22px;
+}
+
+.capture-outline-background {
+   background-color: rgba(60, 120, 80, 0.7);
+}
+
+.capture-outline-frame {
+   border-color: #ccc;
+   border: 1px;
+   border-radius: 4px;
+}
+.capture-outline-frame.desktop {
+   border: none;
+}
+
+.overlay-icon {
+   padding: 5px;
+   box-shadow: 5px 5px 5px #000;
+   box-shadow: inset 5px 5px 5px #fff;
+   border: 1px solid red;
+   width: 22px;
+   height: 22px;
+   icon-shadow: white 0px 0px 3px;
+}
+
+.overlay-test-label {
+   padding-top: 5px;
+   color: #ddd;
+   text-shadow: -1px 1px 8px #000;
+   font-weight: bold;
+   text-align: center;
+}
+
+.overlay-size-label {
+   color: #ccf;
+   text-shadow: -1px 1px 3px #000;
+   text-align: center;
+   vertical-align: top;
+   font-family: Monospace;
+   font-weight: bold;
+   clear: both;
+}
+
+.label-group {
+   text-align: center;
+   border: 1px solid red;
+   vertical-align: middle;
+}
+
+.area-selection {
+    background-color: rgba(74, 144, 217, 0.5);
+    border: 1px solid rgba(74, 144, 217, 1);
+}
+
+.timer {
+    width: 50px;
+    padding: 14px 12px;
+
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+
+    background-color: rgba(60, 120, 80, 0.5);
+    border: 2px solid #396;
+    border-radius: 40px;
+}
+
+.border-h {
+   border-image: url("h.png") 0 2560 0 0;
+}
+.border-v {
+   border-image: url("v.png") 0 0 2560 0;
+}
+.cover {
+   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.capture-dialog-title {
+   padding-bottom: 10px;
+   font-size: 1.2em;
+}
+.capture-dialog-subtitle {
+   padding: 5px 5px 5px 0;
+}
+
+.tmp {
+   width: 400px;
+   /*border: 1px solid red;*/
+   text-align: right;
+}
+.option-label {
+   padding-top: 10px;
+   padding-right: 5px;
+   font-weight: normal;
+   
+}
+
+.handle {
+   border: 1px solid #000;
+   background-color: rgba(250, 250, 250, 0.5);
+}
+
+.instructions {
+   text-align: center;
+   font-size: 28px;
+   text-shadow: 2px 1px 1px #333;
+}
+.instructions-sub {
+   text-align: center;
+   font-size: 22px;
+   color: #ffc;
+   text-shadow: 2px 1px 1px #333;
+}

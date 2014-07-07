@@ -37,7 +37,7 @@ G_DEFINE_TYPE(SagarmathaScreenGrabber, sagarmatha_screen_grabber, G_TYPE_OBJECT)
 static void
 sagarmatha_screen_grabber_finalize (GObject *gobject)
 {
-  SagarmathaScreenGrabber *grabber = CINNAMON_SCREEN_GRABBER (gobject);
+  SagarmathaScreenGrabber *grabber = SAGARMATHA_SCREEN_GRABBER (gobject);
 
   if (grabber->pixel_buffer != 0)
     pf_glDeleteBuffersARB (1, &grabber->pixel_buffer);
@@ -63,7 +63,7 @@ sagarmatha_screen_grabber_init (SagarmathaScreenGrabber *grabber)
 SagarmathaScreenGrabber *
 sagarmatha_screen_grabber_new  (void)
 {
-  return g_object_new (CINNAMON_TYPE_SCREEN_GRABBER, NULL);
+  return g_object_new (SAGARMATHA_TYPE_SCREEN_GRABBER, NULL);
 }
 
 /**

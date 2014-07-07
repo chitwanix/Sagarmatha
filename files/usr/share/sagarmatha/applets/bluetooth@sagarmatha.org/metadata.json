@@ -1,0 +1,6 @@
+{
+ "uuid": "bluetooth@sagarmatha.org",
+ "name": "Bluetooth",
+ "description": "Sagarmatha bluetooth management applet",
+ "icon": "bluetooth"
+}

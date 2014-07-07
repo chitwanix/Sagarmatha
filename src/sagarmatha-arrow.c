@@ -28,7 +28,7 @@ sagarmatha_arrow_set_property (GObject         *object,
                           const GValue    *value,
                           GParamSpec      *pspec)
 {
-  SagarmathaArrow *self = CINNAMON_ARROW (object);
+  SagarmathaArrow *self = SAGARMATHA_ARROW (object);
 
   switch (prop_id)
     {
@@ -50,7 +50,7 @@ sagarmatha_arrow_get_property (GObject         *object,
                                      GValue          *value,
                                      GParamSpec      *pspec)
 {
-  SagarmathaArrow *self = CINNAMON_ARROW (object);
+  SagarmathaArrow *self = SAGARMATHA_ARROW (object);
 
   switch (prop_id)
     {
@@ -137,7 +137,7 @@ sagarmatha_arrow_class_init (SagarmathaArrowClass *klass)
 static void
 sagarmatha_arrow_init (SagarmathaArrow *actor)
 {
-  actor->priv = G_TYPE_INSTANCE_GET_PRIVATE (actor, CINNAMON_TYPE_ARROW,
+  actor->priv = G_TYPE_INSTANCE_GET_PRIVATE (actor, SAGARMATHA_TYPE_ARROW,
                                              SagarmathaArrowPrivate);
   g_signal_connect (actor, "notify::surface-width", G_CALLBACK (sagarmatha_arrow_redraw), NULL);
 }

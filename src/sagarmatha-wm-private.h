@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_WM_PRIVATE_H__
-#define __CINNAMON_WM_PRIVATE_H__
+#ifndef __SAGARMATHA_WM_PRIVATE_H__
+#define __SAGARMATHA_WM_PRIVATE_H__
 
 #include "sagarmatha-wm.h"
 
@@ -43,4 +43,4 @@ void _sagarmatha_wm_kill_switch_workspace (SagarmathaWM             *wm);
 
 G_END_DECLS
 
-#endif /* __CINNAMON_WM_PRIVATE_H__ */
+#endif /* __SAGARMATHA_WM_PRIVATE_H__ */

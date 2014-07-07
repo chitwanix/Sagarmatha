@@ -53,7 +53,7 @@ if $PKG_CONFIG --exists gstreamer-0.10 '>=' $GSTREAMER_MIN_VERSION ; then
    AC_MSG_RESULT(yes)
    build_recorder=true
    recorder_modules="gstreamer-0.10 gstreamer-base-0.10 x11"
-   PKG_CHECK_MODULES(TEST_CINNAMON_RECORDER, $recorder_modules clutter-1.0 xfixes)
+   PKG_CHECK_MODULES(TEST_SAGARMATHA_RECORDER, $recorder_modules clutter-1.0 xfixes)
 else
    AC_MSG_RESULT(no)
 fi
@@ -70,7 +70,7 @@ POLKIT_MIN_VERSION=0.100
 STARTUP_NOTIFICATION_MIN_VERSION=0.11
 
 # Collect more than 20 libraries for a prize!
-PKG_CHECK_MODULES(CINNAMON, gio-2.0 >= $GIO_MIN_VERSION
+PKG_CHECK_MODULES(SAGARMATHA, gio-2.0 >= $GIO_MIN_VERSION
                                gio-unix-2.0 dbus-glib-1 libxml-2.0
                                gtk+-3.0 >= $GTK_MIN_VERSION
                                libmuffin >= $MUFFIN_MIN_VERSION
@@ -84,9 +84,9 @@ PKG_CHECK_MODULES(CINNAMON, gio-2.0 >= $GIO_MIN_VERSION
                                polkit-agent-1 >= $POLKIT_MIN_VERSION xfixes
                                libnm-glib libnm-util gnome-keyring-1)
 
-PKG_CHECK_MODULES(CINNAMON_PERF_HELPER, gtk+-3.0 gio-2.0)
+PKG_CHECK_MODULES(SAGARMATHA_PERF_HELPER, gtk+-3.0 gio-2.0)
 
-PKG_CHECK_MODULES(CINNAMON_HOTPLUG_SNIFFER, gio-2.0 gdk-pixbuf-2.0)
+PKG_CHECK_MODULES(SAGARMATHA_HOTPLUG_SNIFFER, gio-2.0 gdk-pixbuf-2.0)
 
 GJS_VERSION=`$PKG_CONFIG --modversion cjs-internals-1.0`
 AC_DEFINE_UNQUOTED([GJS_VERSION], ["$GJS_VERSION"], [The version of GJS we're linking to])
@@ -98,8 +98,8 @@ AC_SUBST(JHBUILD_TYPELIBDIR)
 
 saved_CFLAGS=$CFLAGS
 saved_LIBS=$LIBS
-CFLAGS=$CINNAMON_CFLAGS
-LIBS=$CINNAMON_LIBS
+CFLAGS=$SAGARMATHA_CFLAGS
+LIBS=$SAGARMATHA_LIBS
 AC_CHECK_FUNCS(JS_NewGlobalObject XFixesCreatePointerBarrier)
 CFLAGS=$saved_CFLAGS
 LIBS=$saved_LIBS
@@ -212,9 +212,9 @@ else
    fi
 
    AC_MSG_RESULT($with_ca_certificates)
-   AC_DEFINE_UNQUOTED(CINNAMON_SYSTEM_CA_FILE, ["$with_ca_certificates"], [The system TLS CA list])
+   AC_DEFINE_UNQUOTED(SAGARMATHA_SYSTEM_CA_FILE, ["$with_ca_certificates"], [The system TLS CA list])
 fi
-AC_SUBST(CINNAMON_SYSTEM_CA_FILE,["$with_ca_certificates"])
+AC_SUBST(SAGARMATHA_SYSTEM_CA_FILE,["$with_ca_certificates"])
 
 BROWSER_PLUGIN_DIR="${BROWSER_PLUGIN_DIR:-"\${libdir}/mozilla/plugins"}"
 AC_ARG_VAR([BROWSER_PLUGIN_DIR],[Where to install the plugin to])

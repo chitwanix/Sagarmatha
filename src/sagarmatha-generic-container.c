@@ -165,7 +165,7 @@ sagarmatha_generic_container_pick (ClutterActor        *actor,
 static GList *
 sagarmatha_generic_container_get_focus_chain (StContainer *container)
 {
-  SagarmathaGenericContainer *self = CINNAMON_GENERIC_CONTAINER (container);
+  SagarmathaGenericContainer *self = SAGARMATHA_GENERIC_CONTAINER (container);
   GList *children, *focus_chain;
 
   focus_chain = NULL;
@@ -287,7 +287,7 @@ sagarmatha_generic_container_class_init (SagarmathaGenericContainerClass *klass)
                   0,
                   NULL, NULL,
                   gi_cclosure_marshal_generic,
-                  G_TYPE_NONE, 2, G_TYPE_FLOAT, CINNAMON_TYPE_GENERIC_CONTAINER_ALLOCATION);
+                  G_TYPE_NONE, 2, G_TYPE_FLOAT, SAGARMATHA_TYPE_GENERIC_CONTAINER_ALLOCATION);
 
   /**
    * SagarmathaGenericContainer::get-preferred-height:
@@ -312,7 +312,7 @@ sagarmatha_generic_container_class_init (SagarmathaGenericContainerClass *klass)
                   0,
                   NULL, NULL,
                   gi_cclosure_marshal_generic,
-                  G_TYPE_NONE, 2, G_TYPE_FLOAT, CINNAMON_TYPE_GENERIC_CONTAINER_ALLOCATION);
+                  G_TYPE_NONE, 2, G_TYPE_FLOAT, SAGARMATHA_TYPE_GENERIC_CONTAINER_ALLOCATION);
 
   /**
    * SagarmathaGenericContainer::allocate:
@@ -342,7 +342,7 @@ static void
 sagarmatha_generic_container_actor_removed (ClutterContainer *container,
                                        ClutterActor     *actor)
 {
-  SagarmathaGenericContainerPrivate *priv = CINNAMON_GENERIC_CONTAINER (container)->priv;
+  SagarmathaGenericContainerPrivate *priv = SAGARMATHA_GENERIC_CONTAINER (container)->priv;
 
   g_hash_table_remove (priv->skip_paint, actor);
 }
@@ -356,7 +356,7 @@ sagarmatha_generic_container_iface_init (ClutterContainerIface *iface)
 static void
 sagarmatha_generic_container_init (SagarmathaGenericContainer *area)
 {
-  area->priv = G_TYPE_INSTANCE_GET_PRIVATE (area, CINNAMON_TYPE_GENERIC_CONTAINER,
+  area->priv = G_TYPE_INSTANCE_GET_PRIVATE (area, SAGARMATHA_TYPE_GENERIC_CONTAINER,
                                             SagarmathaGenericContainerPrivate);
   area->priv->skip_paint = g_hash_table_new (NULL, NULL);
 }

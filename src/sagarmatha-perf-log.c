@@ -186,7 +186,7 @@ sagarmatha_perf_log_get_default (void)
   static SagarmathaPerfLog *perf_log;
 
   if (perf_log == NULL)
-    perf_log = g_object_new (CINNAMON_TYPE_PERF_LOG, NULL);
+    perf_log = g_object_new (SAGARMATHA_TYPE_PERF_LOG, NULL);
 
   return perf_log;
 }

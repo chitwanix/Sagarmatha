@@ -3,8 +3,8 @@
 try:
     from SettingsWidgets import SidePage
     import XletSettings
-    from Spices import Spice_Harvester
-    #from Spices import *
+    from Summit import Spice_Harvester
+    #from Summit import *
     import gettext
     import locale
     import os.path
@@ -347,7 +347,7 @@ class ExtensionSidePage (SidePage):
         hbox.pack_start(buttonbox, True, True, 5)
         getmore_vbox.pack_end(hbox, False, True, 5)
 
-        reload_button.connect("clicked", lambda x: self.load_spices(True))
+        reload_button.connect("clicked", lambda x: self.load_summit(True))
         self.install_button.connect("clicked", lambda x: self.install_extensions())
         self.select_updated.connect("clicked", lambda x: self.select_updated_extensions())
         self.select_updated.hide()
@@ -357,8 +357,8 @@ class ExtensionSidePage (SidePage):
         self.update_list = {}
         self.current_num_updates = 0
 
-        self.spices = Spice_Harvester(self.collection_type, self.window, self.builder, self.noun, self.pl_noun)
-        # if not self.spices.get_webkit_enabled():
+        self.summit = Spice_Harvester(self.collection_type, self.window, self.builder, self.noun, self.pl_noun)
+        # if not self.summit.get_webkit_enabled():
         #     getmore_label.set_sensitive(False)
         #     reload_button.set_sensitive(False)
 
@@ -369,7 +369,7 @@ class ExtensionSidePage (SidePage):
         self.content_box.show_all()
 
         if not self.themes:
-            self.spices.scrubConfigDirs(self.enabled_extensions)
+            self.summit.scrubConfigDirs(self.enabled_extensions)
 
         self.search_entry.grab_focus()
 
@@ -552,7 +552,7 @@ class ExtensionSidePage (SidePage):
         return installed, can_update, is_active
 
     def gm_view_details(self, uuid):
-        self.spices.show_detail(uuid, lambda x: self.gm_mark(uuid, True))
+        self.summit.show_detail(uuid, lambda x: self.gm_mark(uuid, True))
 
     def gm_mark(self, uuid, shouldMark=True):
         for row in self.gm_model:
@@ -641,7 +641,7 @@ class ExtensionSidePage (SidePage):
                     #popup.add(item)
 
                     #item = Gtk.MenuItem(_("Review.."))
-                    #item.connect('activate', lambda x: self.gm_view_on_spices(uuid))
+                    #item.connect('activate', lambda x: self.gm_view_on_summit(uuid))
                     #popup.add(item)
 
                     popup.show_all()
@@ -758,14 +758,14 @@ class ExtensionSidePage (SidePage):
     def gm_on_entry_refilter(self, widget, data=None):
         self.gm_modelfilter.refilter()
 
-    def load_spices(self, force=False):
-        # if self.spices.get_webkit_enabled():
+    def load_summit(self, force=False):
+        # if self.summit.get_webkit_enabled():
         self.update_list = {}
-        self.spices.load(self.on_spice_load, force)
+        self.summit.load(self.on_spice_load, force)
 
     def install_extensions(self):
         if len(self.install_list) > 0:
-            self.spices.install_all(self.install_list, self.install_finished)
+            self.summit.install_all(self.install_list, self.install_finished)
     
     def install_finished(self, need_restart):
         for row in self.gm_model:
@@ -776,12 +776,12 @@ class ExtensionSidePage (SidePage):
         if need_restart:
             self.show_info(_("One or more active %s may have been updated.  You probably need to restart Sagarmatha for the changes to take effect") % (self.pl_noun))
 
-    def on_spice_load(self, spicesData):
-        #print "total spices loaded: %d" % len(spicesData)
+    def on_spice_load(self, summitData):
+        #print "total summit loaded: %d" % len(summitData)
         self.gm_model.clear()
         self.install_button.set_sensitive(False)
-        for uuid in spicesData:
-            extensionData = spicesData[uuid]
+        for uuid in summitData:
+            extensionData = summitData[uuid]
             extensionName = extensionData['name'].replace('&', '&amp;')
             iter = self.gm_model.insert_before(None, None)
             self.gm_model.set_value(iter, 0, uuid)
@@ -800,11 +800,11 @@ class ExtensionSidePage (SidePage):
                 icon_filename = os.path.basename(extensionData['screenshot'])
                 w = -1
                 h = 60
-            if not os.path.exists(os.path.join(self.spices.get_cache_folder(), icon_filename)):
+            if not os.path.exists(os.path.join(self.summit.get_cache_folder(), icon_filename)):
                 img = GdkPixbuf.Pixbuf.new_from_file_at_size( ("/usr/lib/sagarmatha-settings/data/icons/%ss.svg") % (self.collection_type), w, h)
             else:
                 try:
-                    img = GdkPixbuf.Pixbuf.new_from_file_at_size(os.path.join(self.spices.get_cache_folder(), icon_filename), w, h)
+                    img = GdkPixbuf.Pixbuf.new_from_file_at_size(os.path.join(self.summit.get_cache_folder(), icon_filename), w, h)
                 except:
                     img = GdkPixbuf.Pixbuf.new_from_file_at_size( ("/usr/lib/sagarmatha-settings/data/icons/%ss.svg") % (self.collection_type), w, h)
             self.gm_model.set_value(iter, 3, img)
@@ -854,7 +854,7 @@ class ExtensionSidePage (SidePage):
         if not self.show_prompt(_("Are you sure you want to completely remove %s?") % (obj)):
             return
         self.disable_extension(uuid, name, 0)
-        self.spices.uninstall(uuid, name, schema_filename, self.on_uninstall_finished)
+        self.summit.uninstall(uuid, name, schema_filename, self.on_uninstall_finished)
     
     def on_uninstall_finished(self, uuid):
         self.load_extensions()
@@ -870,7 +870,7 @@ class ExtensionSidePage (SidePage):
 
     def on_page_changed(self, notebook, page, page_num):
         if page_num == 1 and len(self.gm_model) == 0:
-            self.load_spices()
+            self.load_summit()
         GLib.timeout_add(1, self.focus, page_num)
 
     def focus(self, page_num):

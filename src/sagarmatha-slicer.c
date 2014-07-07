@@ -137,14 +137,14 @@ sagarmatha_slicer_paint (ClutterActor *self)
   /* StWidget paints CSS elements */
   CLUTTER_ACTOR_CLASS (g_type_class_peek (st_widget_get_type ()))->paint (self);
 
-  sagarmatha_slicer_paint_child (CINNAMON_SLICER (self));
+  sagarmatha_slicer_paint_child (SAGARMATHA_SLICER (self));
 }
 
 static void
 sagarmatha_slicer_pick (ClutterActor       *self,
                    const ClutterColor *pick_color)
 {
-  sagarmatha_slicer_paint_child (CINNAMON_SLICER (self));
+  sagarmatha_slicer_paint_child (SAGARMATHA_SLICER (self));
 }
 
 static void

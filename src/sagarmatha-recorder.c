@@ -159,7 +159,7 @@ G_DEFINE_TYPE(SagarmathaRecorder, sagarmatha_recorder, G_TYPE_OBJECT);
 #define DEFAULT_MEMORY_TARGET (512*1024)
 
 #define PANEL_HEIGHT_KEY "panel-bottom-height"
-#define SCHEMA_CINNAMON "org.sagarmatha"
+#define SCHEMA_SAGARMATHA "org.sagarmatha"
 
 /* Create an emblem to show at the lower-left corner of the stage while
  * recording. The emblem is drawn *after* we record the frame so doesn't
@@ -272,7 +272,7 @@ sagarmatha_recorder_init (SagarmathaRecorder *recorder)
   GVariant *variant = NULL;
   GSettings *desktop_settings;
   
-  desktop_settings = g_settings_new (SCHEMA_CINNAMON);
+  desktop_settings = g_settings_new (SCHEMA_SAGARMATHA);
   variant = g_settings_get_value (desktop_settings, PANEL_HEIGHT_KEY);
   g_variant_get (variant, "i", &recorder->height_adjust);
   
@@ -290,7 +290,7 @@ sagarmatha_recorder_init (SagarmathaRecorder *recorder)
 static void
 sagarmatha_recorder_finalize (GObject  *object)
 {
-  SagarmathaRecorder *recorder = CINNAMON_RECORDER (object);
+  SagarmathaRecorder *recorder = SAGARMATHA_RECORDER (object);
   GSList *l;
 
   for (l = recorder->pipelines; l; l = l->next)
@@ -554,7 +554,7 @@ recorder_record_frame (SagarmathaRecorder *recorder)
 
   recorder_draw_cursor (recorder, buffer);
 
-  sagarmatha_recorder_src_add_buffer (CINNAMON_RECORDER_SRC (recorder->current_pipeline->src), buffer);
+  sagarmatha_recorder_src_add_buffer (SAGARMATHA_RECORDER_SRC (recorder->current_pipeline->src), buffer);
   gst_buffer_unref (buffer);
 
   /* Reset the timeout that we used to avoid an overlong pause in the stream */
@@ -941,7 +941,7 @@ sagarmatha_recorder_set_property (GObject      *object,
                              const GValue *value,
                              GParamSpec   *pspec)
 {
-  SagarmathaRecorder *recorder = CINNAMON_RECORDER (object);
+  SagarmathaRecorder *recorder = SAGARMATHA_RECORDER (object);
 
   switch (prop_id)
     {
@@ -969,7 +969,7 @@ sagarmatha_recorder_get_property (GObject         *object,
                              GValue          *value,
                              GParamSpec      *pspec)
 {
-  SagarmathaRecorder *recorder = CINNAMON_RECORDER (object);
+  SagarmathaRecorder *recorder = SAGARMATHA_RECORDER (object);
 
   switch (prop_id)
     {
@@ -1548,7 +1548,7 @@ recorder_close_pipeline (SagarmathaRecorder *recorder)
        * is written. The bus watch for the pipeline will get it and do
        * final cleanup
        */
-      sagarmatha_recorder_src_close (CINNAMON_RECORDER_SRC (recorder->current_pipeline->src));
+      sagarmatha_recorder_src_close (SAGARMATHA_RECORDER_SRC (recorder->current_pipeline->src));
 
       recorder->current_pipeline = NULL;
       recorder->filename_has_count = FALSE;
@@ -1566,7 +1566,7 @@ recorder_close_pipeline (SagarmathaRecorder *recorder)
 SagarmathaRecorder     *
 sagarmatha_recorder_new (ClutterStage  *stage)
 {
-  return g_object_new (CINNAMON_TYPE_RECORDER,
+  return g_object_new (SAGARMATHA_TYPE_RECORDER,
                        "stage",    stage,
                        NULL);
 }
@@ -1584,7 +1584,7 @@ void
 sagarmatha_recorder_set_framerate (SagarmathaRecorder *recorder,
                              int framerate)
 {
-  g_return_if_fail (CINNAMON_IS_RECORDER (recorder));
+  g_return_if_fail (SAGARMATHA_IS_RECORDER (recorder));
 
   recorder_set_framerate (recorder, framerate);
 }
@@ -1615,7 +1615,7 @@ void
 sagarmatha_recorder_set_filename (SagarmathaRecorder *recorder,
                              const char    *filename)
 {
-  g_return_if_fail (CINNAMON_IS_RECORDER (recorder));
+  g_return_if_fail (SAGARMATHA_IS_RECORDER (recorder));
 
   recorder_set_filename (recorder, filename);
 
@@ -1643,7 +1643,7 @@ void
 sagarmatha_recorder_set_pipeline (SagarmathaRecorder *recorder,
                              const char    *pipeline)
 {
-  g_return_if_fail (CINNAMON_IS_RECORDER (recorder));
+  g_return_if_fail (SAGARMATHA_IS_RECORDER (recorder));
 
   recorder_set_pipeline (recorder, pipeline);
 }
@@ -1670,7 +1670,7 @@ sagarmatha_recorder_set_pipeline (SagarmathaRecorder *recorder,
 gboolean
 sagarmatha_recorder_record (SagarmathaRecorder *recorder)
 {
-  g_return_val_if_fail (CINNAMON_IS_RECORDER (recorder), FALSE);
+  g_return_val_if_fail (SAGARMATHA_IS_RECORDER (recorder), FALSE);
   g_return_val_if_fail (recorder->stage != NULL, FALSE);
   g_return_val_if_fail (recorder->state != RECORDER_STATE_RECORDING, FALSE);
 
@@ -1719,7 +1719,7 @@ sagarmatha_recorder_record (SagarmathaRecorder *recorder)
 void
 sagarmatha_recorder_pause (SagarmathaRecorder *recorder)
 {
-  g_return_if_fail (CINNAMON_IS_RECORDER (recorder));
+  g_return_if_fail (SAGARMATHA_IS_RECORDER (recorder));
   g_return_if_fail (recorder->state == RECORDER_STATE_RECORDING);
 
   recorder_remove_update_pointer_timeout (recorder);
@@ -1756,7 +1756,7 @@ sagarmatha_recorder_pause (SagarmathaRecorder *recorder)
 void
 sagarmatha_recorder_close (SagarmathaRecorder *recorder)
 {
-  g_return_if_fail (CINNAMON_IS_RECORDER (recorder));
+  g_return_if_fail (SAGARMATHA_IS_RECORDER (recorder));
   g_return_if_fail (recorder->state != RECORDER_STATE_CLOSED);
 
   if (recorder->state == RECORDER_STATE_RECORDING)
@@ -1786,7 +1786,7 @@ sagarmatha_recorder_close (SagarmathaRecorder *recorder)
 gboolean
 sagarmatha_recorder_is_recording (SagarmathaRecorder *recorder)
 {
-  g_return_val_if_fail (CINNAMON_IS_RECORDER (recorder), FALSE);
+  g_return_val_if_fail (SAGARMATHA_IS_RECORDER (recorder), FALSE);
 
   return recorder->state == RECORDER_STATE_RECORDING;
 }

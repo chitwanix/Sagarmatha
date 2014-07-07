@@ -104,7 +104,7 @@ Architecture: any
 Depends: sagarmatha (= ${binary:Version}),
          ${misc:Depends}
 Description: Debugging symbols for the Sagarmatha desktop
- Sagarmatha redefines user interactions with the Cinnamon and GNOME desktop.
+ Sagarmatha redefines user interactions with the GNOME desktop.
  In particular, it offers new paradigms for launching applications,
  accessing documents, and organizing open windows in GNOME. Later, it
  will introduce a new applets eco-system and offer new solutions for
@@ -117,10 +117,12 @@ Description: Debugging symbols for the Sagarmatha desktop
  This package contains the debugging symbols.
 
 Package: sagarmatha-common
+Replaces: sagarmatha (<< 1.0.0)
+Breaks: sagarmatha (<< 1.0.0)
 Architecture: all
 Depends: ${misc:Depends}, python
 Description: Sagarmatha desktop (Common data files)
- Sagarmatha redefines user interactions with the Cinnamon and GNOME desktop.
+ Sagarmatha redefines user interactions with the GNOME desktop.
  In particular, it offers new paradigms for launching applications,
  accessing documents, and organizing open windows in GNOME. Later, it
  will introduce a new applets eco-system and offer new solutions for

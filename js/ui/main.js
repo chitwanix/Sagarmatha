@@ -232,7 +232,7 @@ function start() {
     }
 
     log("About to start Sagarmatha");
-    if (GLib.getenv('CINNAMON_SOFTWARE_RENDERING')) {
+    if (GLib.getenv('SAGARMATHA_SOFTWARE_RENDERING')) {
         log("ACTIVATING SOFTWARE RENDERING");        
         global.logError("Sagarmatha Software Rendering mode enabled");
         software_rendering = true;
@@ -378,9 +378,9 @@ function start() {
     global.log('loaded at ' + _startDate);
     log('Sagarmatha started at ' + _startDate);
 
-    let perfModuleName = GLib.getenv("CINNAMON_PERF_MODULE");
+    let perfModuleName = GLib.getenv("SAGARMATHA_PERF_MODULE");
     if (perfModuleName) {
-        let perfOutput = GLib.getenv("CINNAMON_PERF_OUTPUT");
+        let perfOutput = GLib.getenv("SAGARMATHA_PERF_OUTPUT");
         let module = eval('imports.perf.' + perfModuleName + ';');
         Scripting.runPerfScript(module, perfOutput);
     }
@@ -398,7 +398,7 @@ function start() {
     AppletManager.init();
     DeskletManager.init();
 
-    if (software_rendering && !GLib.getenv('CINNAMON_2D')) {
+    if (software_rendering && !GLib.getenv('SAGARMATHA_2D')) {
         notifySagarmatha2d();
     }
 }

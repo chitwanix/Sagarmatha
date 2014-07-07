@@ -69,7 +69,7 @@ sagarmatha_xfixes_cursor_init (SagarmathaXFixesCursor *xfixes_cursor)
 static void
 sagarmatha_xfixes_cursor_finalize (GObject  *object)
 {
-  SagarmathaXFixesCursor *xfixes_cursor = CINNAMON_XFIXES_CURSOR (object);
+  SagarmathaXFixesCursor *xfixes_cursor = SAGARMATHA_XFIXES_CURSOR (object);
 
   // Make sure the system cursor is showing before leaving the stage.
   xfixes_cursor_show (xfixes_cursor);
@@ -261,7 +261,7 @@ sagarmatha_xfixes_cursor_set_property (GObject      *object,
                                  const GValue *value,
                                  GParamSpec   *pspec)
 {
-  SagarmathaXFixesCursor *xfixes_cursor = CINNAMON_XFIXES_CURSOR (object);
+  SagarmathaXFixesCursor *xfixes_cursor = SAGARMATHA_XFIXES_CURSOR (object);
 
   switch (prop_id)
     {
@@ -280,7 +280,7 @@ sagarmatha_xfixes_cursor_get_property (GObject         *object,
                              GValue          *value,
                              GParamSpec      *pspec)
 {
-  SagarmathaXFixesCursor *xfixes_cursor = CINNAMON_XFIXES_CURSOR (object);
+  SagarmathaXFixesCursor *xfixes_cursor = SAGARMATHA_XFIXES_CURSOR (object);
 
   switch (prop_id)
     {
@@ -339,7 +339,7 @@ sagarmatha_xfixes_cursor_get_for_stage (ClutterStage *stage)
 
   if (instance == NULL)
     {
-      instance = g_object_new (CINNAMON_TYPE_XFIXES_CURSOR,
+      instance = g_object_new (SAGARMATHA_TYPE_XFIXES_CURSOR,
                                "stage", stage,
                                NULL);
       g_object_set_qdata (G_OBJECT (stage), xfixes_cursor_quark, instance);
@@ -357,7 +357,7 @@ sagarmatha_xfixes_cursor_get_for_stage (ClutterStage *stage)
 void
 sagarmatha_xfixes_cursor_hide (SagarmathaXFixesCursor *xfixes_cursor)
 {
-  g_return_if_fail (CINNAMON_IS_XFIXES_CURSOR (xfixes_cursor));
+  g_return_if_fail (SAGARMATHA_IS_XFIXES_CURSOR (xfixes_cursor));
 
   xfixes_cursor_hide (xfixes_cursor);
 }
@@ -371,7 +371,7 @@ sagarmatha_xfixes_cursor_hide (SagarmathaXFixesCursor *xfixes_cursor)
 void
 sagarmatha_xfixes_cursor_show (SagarmathaXFixesCursor *xfixes_cursor)
 {
-  g_return_if_fail (CINNAMON_IS_XFIXES_CURSOR (xfixes_cursor));
+  g_return_if_fail (SAGARMATHA_IS_XFIXES_CURSOR (xfixes_cursor));
 
   xfixes_cursor_show (xfixes_cursor);
 }
@@ -386,7 +386,7 @@ sagarmatha_xfixes_cursor_update_texture_image (SagarmathaXFixesCursor *xfixes_cu
                                           ClutterTexture *texture)
 {
     CoglHandle *old_sprite;
-    g_return_if_fail (CINNAMON_IS_XFIXES_CURSOR (xfixes_cursor));
+    g_return_if_fail (SAGARMATHA_IS_XFIXES_CURSOR (xfixes_cursor));
 
     if (texture == NULL)
         return;
@@ -407,7 +407,7 @@ sagarmatha_xfixes_cursor_update_texture_image (SagarmathaXFixesCursor *xfixes_cu
 int
 sagarmatha_xfixes_cursor_get_hot_x (SagarmathaXFixesCursor *xfixes_cursor)
 {
-  g_return_val_if_fail (CINNAMON_IS_XFIXES_CURSOR (xfixes_cursor), 0);
+  g_return_val_if_fail (SAGARMATHA_IS_XFIXES_CURSOR (xfixes_cursor), 0);
 
   return xfixes_cursor->cursor_hot_x;
 }
@@ -421,7 +421,7 @@ sagarmatha_xfixes_cursor_get_hot_x (SagarmathaXFixesCursor *xfixes_cursor)
 int
 sagarmatha_xfixes_cursor_get_hot_y (SagarmathaXFixesCursor *xfixes_cursor)
 {
-  g_return_val_if_fail (CINNAMON_IS_XFIXES_CURSOR (xfixes_cursor), 0);
+  g_return_val_if_fail (SAGARMATHA_IS_XFIXES_CURSOR (xfixes_cursor), 0);
 
   return xfixes_cursor->cursor_hot_y;
 }

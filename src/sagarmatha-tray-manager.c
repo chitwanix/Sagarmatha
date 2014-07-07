@@ -74,7 +74,7 @@ sagarmatha_tray_manager_set_property(GObject         *object,
                                 const GValue    *value,
                                 GParamSpec      *pspec)
 {
-  SagarmathaTrayManager *manager = CINNAMON_TRAY_MANAGER (object);
+  SagarmathaTrayManager *manager = SAGARMATHA_TRAY_MANAGER (object);
 
   switch (prop_id)
     {
@@ -99,7 +99,7 @@ sagarmatha_tray_manager_get_property(GObject         *object,
                                 GValue          *value,
                                 GParamSpec      *pspec)
 {
-  SagarmathaTrayManager *manager = CINNAMON_TRAY_MANAGER (object);
+  SagarmathaTrayManager *manager = SAGARMATHA_TRAY_MANAGER (object);
 
   switch (prop_id)
     {
@@ -115,7 +115,7 @@ sagarmatha_tray_manager_get_property(GObject         *object,
 static void
 sagarmatha_tray_manager_init (SagarmathaTrayManager *manager)
 {
-  manager->priv = G_TYPE_INSTANCE_GET_PRIVATE (manager, CINNAMON_TYPE_TRAY_MANAGER,
+  manager->priv = G_TYPE_INSTANCE_GET_PRIVATE (manager, SAGARMATHA_TYPE_TRAY_MANAGER,
                                                SagarmathaTrayManagerPrivate);
   manager->priv->na_manager = na_tray_manager_new ();
 
@@ -132,7 +132,7 @@ sagarmatha_tray_manager_init (SagarmathaTrayManager *manager)
 static void
 sagarmatha_tray_manager_finalize (GObject *object)
 {
-  SagarmathaTrayManager *manager = CINNAMON_TRAY_MANAGER (object);
+  SagarmathaTrayManager *manager = SAGARMATHA_TRAY_MANAGER (object);
 
   g_object_unref (manager->priv->na_manager);
   g_object_unref (manager->priv->stage);
@@ -187,7 +187,7 @@ sagarmatha_tray_manager_class_init (SagarmathaTrayManagerClass *klass)
 SagarmathaTrayManager *
 sagarmatha_tray_manager_new (void)
 {
-  return g_object_new (CINNAMON_TYPE_TRAY_MANAGER, NULL);
+  return g_object_new (SAGARMATHA_TYPE_TRAY_MANAGER, NULL);
 }
 
 static void
@@ -299,7 +299,7 @@ on_plug_added (GtkSocket        *socket,
 
   child = g_hash_table_lookup (manager->priv->icons, socket);
 
-  child->actor = sagarmatha_tray_icon_new (CINNAMON_EMBEDDED_WINDOW (child->window));
+  child->actor = sagarmatha_tray_icon_new (SAGARMATHA_EMBEDDED_WINDOW (child->window));
   g_object_ref_sink (child->actor);
 
   g_signal_emit (manager, sagarmatha_tray_manager_signals[TRAY_ICON_ADDED], 0,

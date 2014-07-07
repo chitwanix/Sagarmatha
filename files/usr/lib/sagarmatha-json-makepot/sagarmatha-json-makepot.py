@@ -60,7 +60,7 @@ class Main:
 
             -i, --install - Compiles and installs any .po files contained in a po folder
                   to the system locale store.  Use this option to test your translations
-                  locally before uploading to Spices.  It will use the applet, desklet,
+                  locally before uploading to Summit.  It will use the applet, desklet,
                   or extension UUID as the translation domain
 
             -r, --remove - The opposite of install, removes translations from the store.

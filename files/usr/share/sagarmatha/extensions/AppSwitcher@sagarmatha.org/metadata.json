@@ -1,0 +1,7 @@
+{
+  "uuid": "AppSwitcher@sagarmatha.org",
+  "name": "3D App Switcher",
+  "version": "1.0",
+  "sagarmatha-version": ["1.0"],
+  "description": "Switch between running apps; select windows with a Timeline or Coverflow switcher"
+}

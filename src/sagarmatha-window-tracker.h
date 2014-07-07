@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_WINDOW_TRACKER_H__
-#define __CINNAMON_WINDOW_TRACKER_H__
+#ifndef __SAGARMATHA_WINDOW_TRACKER_H__
+#define __SAGARMATHA_WINDOW_TRACKER_H__
 
 #include <glib-object.h>
 #include <glib.h>
@@ -15,12 +15,12 @@ typedef struct _SagarmathaWindowTracker SagarmathaWindowTracker;
 typedef struct _SagarmathaWindowTrackerClass SagarmathaWindowTrackerClass;
 typedef struct _SagarmathaWindowTrackerPrivate SagarmathaWindowTrackerPrivate;
 
-#define CINNAMON_TYPE_WINDOW_TRACKER              (sagarmatha_window_tracker_get_type ())
-#define CINNAMON_WINDOW_TRACKER(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), CINNAMON_TYPE_WINDOW_TRACKER, SagarmathaWindowTracker))
-#define CINNAMON_WINDOW_TRACKER_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_WINDOW_TRACKER, SagarmathaWindowTrackerClass))
-#define CINNAMON_IS_WINDOW_TRACKER(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), CINNAMON_TYPE_WINDOW_TRACKER))
-#define CINNAMON_IS_WINDOW_TRACKER_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_WINDOW_TRACKER))
-#define CINNAMON_WINDOW_TRACKER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_WINDOW_TRACKER, SagarmathaWindowTrackerClass))
+#define SAGARMATHA_TYPE_WINDOW_TRACKER              (sagarmatha_window_tracker_get_type ())
+#define SAGARMATHA_WINDOW_TRACKER(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), SAGARMATHA_TYPE_WINDOW_TRACKER, SagarmathaWindowTracker))
+#define SAGARMATHA_WINDOW_TRACKER_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_WINDOW_TRACKER, SagarmathaWindowTrackerClass))
+#define SAGARMATHA_IS_WINDOW_TRACKER(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), SAGARMATHA_TYPE_WINDOW_TRACKER))
+#define SAGARMATHA_IS_WINDOW_TRACKER_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_WINDOW_TRACKER))
+#define SAGARMATHA_WINDOW_TRACKER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_WINDOW_TRACKER, SagarmathaWindowTrackerClass))
 
 struct _SagarmathaWindowTrackerClass
 {
@@ -43,7 +43,7 @@ GSList *sagarmatha_window_tracker_get_startup_sequences (SagarmathaWindowTracker
 
 /* Hidden typedef for SnStartupSequence */
 typedef struct _SagarmathaStartupSequence SagarmathaStartupSequence;
-#define CINNAMON_TYPE_STARTUP_SEQUENCE (sagarmatha_startup_sequence_get_type ())
+#define SAGARMATHA_TYPE_STARTUP_SEQUENCE (sagarmatha_startup_sequence_get_type ())
 GType sagarmatha_startup_sequence_get_type (void);
 
 const char *sagarmatha_startup_sequence_get_id (SagarmathaStartupSequence *sequence);
@@ -54,4 +54,4 @@ ClutterActor *sagarmatha_startup_sequence_create_icon (SagarmathaStartupSequence
 
 G_END_DECLS
 
-#endif /* __CINNAMON_WINDOW_TRACKER_H__ */
+#endif /* __SAGARMATHA_WINDOW_TRACKER_H__ */

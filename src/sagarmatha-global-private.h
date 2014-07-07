@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_GLOBAL_PRIVATE_H__
-#define __CINNAMON_GLOBAL_PRIVATE_H__
+#ifndef __SAGARMATHA_GLOBAL_PRIVATE_H__
+#define __SAGARMATHA_GLOBAL_PRIVATE_H__
 
 #include "sagarmatha-global.h"
 
@@ -16,4 +16,4 @@ GjsContext *_sagarmatha_global_get_gjs_context (SagarmathaGlobal  *global);
 gboolean _sagarmatha_global_check_xdnd_event (SagarmathaGlobal  *global,
                                          XEvent       *xev);
 
-#endif /* __CINNAMON_GLOBAL_PRIVATE_H__ */
+#endif /* __SAGARMATHA_GLOBAL_PRIVATE_H__ */

@@ -91,7 +91,7 @@ sagarmatha_gtk_embed_set_property (GObject         *object,
                               const GValue    *value,
                               GParamSpec      *pspec)
 {
-  SagarmathaGtkEmbed *embed = CINNAMON_GTK_EMBED (object);
+  SagarmathaGtkEmbed *embed = SAGARMATHA_GTK_EMBED (object);
 
   switch (prop_id)
     {
@@ -111,7 +111,7 @@ sagarmatha_gtk_embed_get_property (GObject         *object,
                               GValue          *value,
                               GParamSpec      *pspec)
 {
-  SagarmathaGtkEmbed *embed = CINNAMON_GTK_EMBED (object);
+  SagarmathaGtkEmbed *embed = SAGARMATHA_GTK_EMBED (object);
 
   switch (prop_id)
     {
@@ -131,7 +131,7 @@ sagarmatha_gtk_embed_get_preferred_width (ClutterActor *actor,
                                      float        *min_width_p,
                                      float        *natural_width_p)
 {
-  SagarmathaGtkEmbed *embed = CINNAMON_GTK_EMBED (actor);
+  SagarmathaGtkEmbed *embed = SAGARMATHA_GTK_EMBED (actor);
 
   if (embed->priv->window
       && gtk_widget_get_visible (GTK_WIDGET (embed->priv->window)))
@@ -152,7 +152,7 @@ sagarmatha_gtk_embed_get_preferred_height (ClutterActor *actor,
                                       float        *min_height_p,
                                       float        *natural_height_p)
 {
-  SagarmathaGtkEmbed *embed = CINNAMON_GTK_EMBED (actor);
+  SagarmathaGtkEmbed *embed = SAGARMATHA_GTK_EMBED (actor);
 
   if (embed->priv->window
       && gtk_widget_get_visible (GTK_WIDGET (embed->priv->window)))
@@ -172,7 +172,7 @@ sagarmatha_gtk_embed_allocate (ClutterActor          *actor,
                           const ClutterActorBox *box,
                           ClutterAllocationFlags flags)
 {
-  SagarmathaGtkEmbed *embed = CINNAMON_GTK_EMBED (actor);
+  SagarmathaGtkEmbed *embed = SAGARMATHA_GTK_EMBED (actor);
   float wx = 0.0, wy = 0.0, x, y, ax, ay;
 
   CLUTTER_ACTOR_CLASS (sagarmatha_gtk_embed_parent_class)->
@@ -201,7 +201,7 @@ sagarmatha_gtk_embed_allocate (ClutterActor          *actor,
 static void
 sagarmatha_gtk_embed_realize (ClutterActor *actor)
 {
-  SagarmathaGtkEmbed *embed = CINNAMON_GTK_EMBED (actor);
+  SagarmathaGtkEmbed *embed = SAGARMATHA_GTK_EMBED (actor);
 
   _sagarmatha_embedded_window_realize (embed->priv->window);
 
@@ -211,7 +211,7 @@ sagarmatha_gtk_embed_realize (ClutterActor *actor)
 static void
 sagarmatha_gtk_embed_unrealize (ClutterActor *actor)
 {
-  SagarmathaGtkEmbed *embed = CINNAMON_GTK_EMBED (actor);
+  SagarmathaGtkEmbed *embed = SAGARMATHA_GTK_EMBED (actor);
   
   if (embed->priv->window)
     _sagarmatha_embedded_window_unrealize (embed->priv->window);
@@ -222,7 +222,7 @@ sagarmatha_gtk_embed_unrealize (ClutterActor *actor)
 static void
 sagarmatha_gtk_embed_dispose (GObject *object)
 {
-  SagarmathaGtkEmbed *embed = CINNAMON_GTK_EMBED (object);
+  SagarmathaGtkEmbed *embed = SAGARMATHA_GTK_EMBED (object);
 
   sagarmatha_gtk_embed_set_window (embed, NULL);
 
@@ -252,14 +252,14 @@ sagarmatha_gtk_embed_class_init (SagarmathaGtkEmbedClass *klass)
                                    g_param_spec_object ("window",
                                                         "Window",
                                                         "SagarmathaEmbeddedWindow to embed",
-                                                        CINNAMON_TYPE_EMBEDDED_WINDOW,
+                                                        SAGARMATHA_TYPE_EMBEDDED_WINDOW,
                                                         G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 }
 
 static void
 sagarmatha_gtk_embed_init (SagarmathaGtkEmbed *embed)
 {
-  embed->priv = G_TYPE_INSTANCE_GET_PRIVATE (embed, CINNAMON_TYPE_GTK_EMBED,
+  embed->priv = G_TYPE_INSTANCE_GET_PRIVATE (embed, SAGARMATHA_TYPE_GTK_EMBED,
                                              SagarmathaGtkEmbedPrivate);
 
   /* automatic here means whether ClutterX11TexturePixmap should
@@ -274,9 +274,9 @@ sagarmatha_gtk_embed_init (SagarmathaGtkEmbed *embed)
 ClutterActor *
 sagarmatha_gtk_embed_new (SagarmathaEmbeddedWindow *window)
 {
-  g_return_val_if_fail (CINNAMON_IS_EMBEDDED_WINDOW (window), NULL);
+  g_return_val_if_fail (SAGARMATHA_IS_EMBEDDED_WINDOW (window), NULL);
 
-  return g_object_new (CINNAMON_TYPE_GTK_EMBED,
+  return g_object_new (SAGARMATHA_TYPE_GTK_EMBED,
                        "window", window,
                        NULL);
 }

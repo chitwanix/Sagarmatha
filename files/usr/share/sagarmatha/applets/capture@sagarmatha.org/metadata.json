@@ -1,0 +1,8 @@
+{
+   "uuid": "capture@sagarmatha.org",
+   "name": "Desktop Capture",
+   "description": "Screenshot and screencasting tools",
+   "icon": "retro-icon-chitwanix.png",
+   "version": "1.0",
+   "hide-configuration": false
+}

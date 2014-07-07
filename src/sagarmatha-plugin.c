@@ -87,12 +87,12 @@ static gboolean              gnome_sagarmatha_plugin_xevent_filter (MetaPlugin *
 static const MetaPluginInfo *gnome_sagarmatha_plugin_plugin_info   (MetaPlugin *plugin);
 
 
-#define GNOME_TYPE_CINNAMON_PLUGIN            (gnome_sagarmatha_plugin_get_type ())
-#define CINNAMON_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_CINNAMON_PLUGIN, SagarmathaPlugin))
-#define CINNAMON_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  GNOME_TYPE_CINNAMON_PLUGIN, SagarmathaPluginClass))
-#define GNOME_IS_CINNAMON_PLUGIN(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CINNAMON_PLUGIN_TYPE))
-#define GNOME_IS_CINNAMON_PLUGIN_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  GNOME_TYPE_CINNAMON_PLUGIN))
-#define CINNAMON_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  GNOME_TYPE_CINNAMON_PLUGIN, SagarmathaPluginClass))
+#define GNOME_TYPE_SAGARMATHA_PLUGIN            (gnome_sagarmatha_plugin_get_type ())
+#define SAGARMATHA_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_SAGARMATHA_PLUGIN, SagarmathaPlugin))
+#define SAGARMATHA_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  GNOME_TYPE_SAGARMATHA_PLUGIN, SagarmathaPluginClass))
+#define GNOME_IS_SAGARMATHA_PLUGIN(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), SAGARMATHA_PLUGIN_TYPE))
+#define GNOME_IS_SAGARMATHA_PLUGIN_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  GNOME_TYPE_SAGARMATHA_PLUGIN))
+#define SAGARMATHA_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  GNOME_TYPE_SAGARMATHA_PLUGIN, SagarmathaPluginClass))
 
 typedef struct _SagarmathaPlugin        SagarmathaPlugin;
 typedef struct _SagarmathaPluginClass   SagarmathaPluginClass;
@@ -155,7 +155,7 @@ gnome_sagarmatha_plugin_init (SagarmathaPlugin *sagarmatha_plugin)
 static void
 gnome_sagarmatha_plugin_start (MetaPlugin *plugin)
 {
-  SagarmathaPlugin *sagarmatha_plugin = CINNAMON_PLUGIN (plugin);
+  SagarmathaPlugin *sagarmatha_plugin = SAGARMATHA_PLUGIN (plugin);
 #if defined (__arm__)
 #else
   MetaScreen *screen;
@@ -338,7 +338,7 @@ gnome_sagarmatha_plugin_xevent_filter (MetaPlugin *plugin,
   MetaScreen *screen = meta_plugin_get_screen (plugin);
   ClutterStage *stage = CLUTTER_STAGE (meta_get_stage_for_screen (screen));
 
-  SagarmathaPlugin *sagarmatha_plugin = CINNAMON_PLUGIN (plugin);
+  SagarmathaPlugin *sagarmatha_plugin = SAGARMATHA_PLUGIN (plugin);
 #ifdef GLX_INTEL_swap_event
   if (sagarmatha_plugin->have_swap_event &&
       xev->type == (sagarmatha_plugin->glx_event_base + GLX_BufferSwapComplete))

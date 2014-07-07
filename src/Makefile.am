@@ -77,15 +77,15 @@ include Makefile-gvc.am
 include Makefile-hotplug-sniffer.am
 
 sagarmatha_cflags =				\
-	$(CINNAMON_CFLAGS)			\
+	$(SAGARMATHA_CFLAGS)			\
 	-I$(srcdir)/tray			\
 	-DVERSION=\"$(VERSION)\"		\
 	-DLOCALEDIR=\"$(datadir)/sagarmatha/locale\" 	\
 	-DDATADIR=\"$(datadir)\"		\
-	-DCINNAMON_LIBEXECDIR=\"$(libexecdir)\"	\
-	-DCINNAMON_DATADIR=\"$(pkgdatadir)\"	\
-	-DCINNAMON_PKGLIBDIR=\"$(pkglibdir)\" \
-	-DCINNAMON_PKGLIBEXECDIR=\"$(pkglibexecdir)\"	\
+	-DSAGARMATHA_LIBEXECDIR=\"$(libexecdir)\"	\
+	-DSAGARMATHA_DATADIR=\"$(pkgdatadir)\"	\
+	-DSAGARMATHA_PKGLIBDIR=\"$(pkglibdir)\" \
+	-DSAGARMATHA_PKGLIBEXECDIR=\"$(pkglibexecdir)\"	\
 	-DJSDIR=\"$(pkgdatadir)/js\"
 
 privlibdir = $(pkglibdir)
@@ -181,8 +181,8 @@ libsagarmatha_la_SOURCES += $(sagarmatha_recorder_sources) $(sagarmatha_recorder
 
 noinst_PROGRAMS += test-recorder
 
-test_recorder_CPPFLAGS = $(TEST_CINNAMON_RECORDER_CFLAGS)
-test_recorder_LDADD = $(TEST_CINNAMON_RECORDER_LIBS)
+test_recorder_CPPFLAGS = $(TEST_SAGARMATHA_RECORDER_CFLAGS)
+test_recorder_LDADD = $(TEST_SAGARMATHA_RECORDER_LIBS)
 
 test_recorder_SOURCES =     \
 	$(sagarmatha_recorder_sources) $(sagarmatha_recorder_non_gir_sources) \
@@ -194,8 +194,8 @@ endif BUILD_RECORDER
 pkglibexec_PROGRAMS += sagarmatha-perf-helper
 
 sagarmatha_perf_helper_SOURCES = sagarmatha-perf-helper.c
-sagarmatha_perf_helper_CPPFLAGS = $(CINNAMON_PERF_HELPER_CFLAGS)
-sagarmatha_perf_helper_LDADD = $(CINNAMON_PERF_HELPER_LIBS)
+sagarmatha_perf_helper_CPPFLAGS = $(SAGARMATHA_PERF_HELPER_CFLAGS)
+sagarmatha_perf_helper_LDADD = $(SAGARMATHA_PERF_HELPER_LIBS)
 
 ########################################
 
@@ -257,7 +257,7 @@ EXTRA_DIST += sagarmatha-enum-types.c.in
 libsagarmatha_la_LDFLAGS = -avoid-version
 libsagarmatha_la_LIBADD =		\
 	-lm			\
-	$(CINNAMON_LIBS)	\
+	$(SAGARMATHA_LIBS)	\
 	$(BLUETOOTH_LIBS)	\
 	libst-1.0.la       	\
 	libtray.la		\

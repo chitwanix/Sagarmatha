@@ -12,11 +12,11 @@ sagarmatha_hotplug_sniffer_SOURCES =								\
 sagarmatha_hotplug_sniffer_CFLAGS =		\
 	-I$(top_srcdir)/src			\
 	-DG_DISABLE_DEPRECATED			\
-	$(CINNAMON_HOTPLUG_SNIFFER_CFLAGS)		\
+	$(SAGARMATHA_HOTPLUG_SNIFFER_CFLAGS)		\
 	$(NULL)
 
 sagarmatha_hotplug_sniffer_LDADD =		\
-	$(CINNAMON_HOTPLUG_SNIFFER_LIBS)		\
+	$(SAGARMATHA_HOTPLUG_SNIFFER_LIBS)		\
 	$(NULL)
 
 EXTRA_DIST += 							  \

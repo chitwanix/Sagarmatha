@@ -21,20 +21,20 @@
  *
  */
 
-#ifndef __CINNAMON_MIME_SNIFFER_H__
-#define __CINNAMON_MIME_SNIFFER_H__
+#ifndef __SAGARMATHA_MIME_SNIFFER_H__
+#define __SAGARMATHA_MIME_SNIFFER_H__
 
 #include <glib-object.h>
 #include <gio/gio.h>
 
 G_BEGIN_DECLS
 
-#define CINNAMON_TYPE_MIME_SNIFFER            (sagarmatha_mime_sniffer_get_type ())
-#define CINNAMON_MIME_SNIFFER(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CINNAMON_TYPE_MIME_SNIFFER, SagarmathaMimeSniffer))
-#define CINNAMON_IS_MIME_SNIFFER(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CINNAMON_TYPE_MIME_SNIFFER))
-#define CINNAMON_MIME_SNIFFER_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  CINNAMON_TYPE_MIME_SNIFFER, SagarmathaMimeSnifferClass))
-#define CINNAMON_IS_MIME_SNIFFER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  CINNAMON_TYPE_MIME_SNIFFER))
-#define CINNAMON_MIME_SNIFFER_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  CINNAMON_TYPE_MIME_SNIFFER, SagarmathaMimeSnifferClass))
+#define SAGARMATHA_TYPE_MIME_SNIFFER            (sagarmatha_mime_sniffer_get_type ())
+#define SAGARMATHA_MIME_SNIFFER(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), SAGARMATHA_TYPE_MIME_SNIFFER, SagarmathaMimeSniffer))
+#define SAGARMATHA_IS_MIME_SNIFFER(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), SAGARMATHA_TYPE_MIME_SNIFFER))
+#define SAGARMATHA_MIME_SNIFFER_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  SAGARMATHA_TYPE_MIME_SNIFFER, SagarmathaMimeSnifferClass))
+#define SAGARMATHA_IS_MIME_SNIFFER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  SAGARMATHA_TYPE_MIME_SNIFFER))
+#define SAGARMATHA_MIME_SNIFFER_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  SAGARMATHA_TYPE_MIME_SNIFFER, SagarmathaMimeSnifferClass))
 
 typedef struct _SagarmathaMimeSniffer          SagarmathaMimeSniffer;
 typedef struct _SagarmathaMimeSnifferPrivate   SagarmathaMimeSnifferPrivate;
@@ -66,4 +66,4 @@ gchar ** sagarmatha_mime_sniffer_sniff_finish (SagarmathaMimeSniffer *self,
 
 G_END_DECLS
 
-#endif /* __CINNAMON_MIME_SNIFFER_H__ */
+#endif /* __SAGARMATHA_MIME_SNIFFER_H__ */

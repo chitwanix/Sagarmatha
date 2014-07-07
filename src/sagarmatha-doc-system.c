@@ -68,7 +68,7 @@ sagarmatha_doc_system_lookup_by_uri (SagarmathaDocSystem  *self,
 static gboolean
 sagarmatha_doc_system_idle_emit_deleted (gpointer data)
 {
-  SagarmathaDocSystem *self = CINNAMON_DOC_SYSTEM (data);
+  SagarmathaDocSystem *self = SAGARMATHA_DOC_SYSTEM (data);
   GHashTableIter iter;
   gpointer key, value;
 
@@ -185,7 +185,7 @@ sort_infos_by_timestamp_descending (gconstpointer a,
 static gboolean
 idle_handle_recent_changed (gpointer data)
 {
-  SagarmathaDocSystem *self = CINNAMON_DOC_SYSTEM (data);
+  SagarmathaDocSystem *self = SAGARMATHA_DOC_SYSTEM (data);
   GList *items, *iter;
 
   self->priv->idle_recent_changed_id = 0;
@@ -317,7 +317,7 @@ sagarmatha_doc_system_class_init(SagarmathaDocSystemClass *klass)
 
   signals[CHANGED] =
     g_signal_new ("changed",
-		  CINNAMON_TYPE_DOC_SYSTEM,
+		  SAGARMATHA_TYPE_DOC_SYSTEM,
 		  G_SIGNAL_RUN_LAST,
 		  0,
 		  NULL, NULL,
@@ -326,7 +326,7 @@ sagarmatha_doc_system_class_init(SagarmathaDocSystemClass *klass)
 
   signals[DELETED] =
     g_signal_new ("deleted",
-		  CINNAMON_TYPE_DOC_SYSTEM,
+		  SAGARMATHA_TYPE_DOC_SYSTEM,
 		  G_SIGNAL_RUN_LAST,
 		  0,
 		  NULL, NULL,
@@ -342,7 +342,7 @@ sagarmatha_doc_system_init (SagarmathaDocSystem *self)
   SagarmathaDocSystemPrivate *priv;
 
   self->priv = priv = G_TYPE_INSTANCE_GET_PRIVATE (self,
-                                                   CINNAMON_TYPE_DOC_SYSTEM,
+                                                   SAGARMATHA_TYPE_DOC_SYSTEM,
                                                    SagarmathaDocSystemPrivate);
   self->priv->manager = gtk_recent_manager_get_default ();
 
@@ -364,7 +364,7 @@ sagarmatha_doc_system_get_default ()
   static SagarmathaDocSystem *instance = NULL;
 
   if (instance == NULL)
-    instance = g_object_new (CINNAMON_TYPE_DOC_SYSTEM, NULL);
+    instance = g_object_new (SAGARMATHA_TYPE_DOC_SYSTEM, NULL);
 
   return instance;
 }

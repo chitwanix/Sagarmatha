@@ -1,0 +1,68 @@
+0.11
+====
+- Remove some xsession-errors [Issue #37]
+- Remove reference to non-existent function [Issue #38]
+
+0.10
+====
+- Feeds management app must use python2, not python3 [Issue #36]
+
+0.9
+===
+- Add feed management app for adding/removing/re-ordering feeds [Issue #31]
+- Support import of feeds from OPML files [Issue #25]
+- Support import/export of a feed list via management app [Issue #35]
+
+0.8
+===
+- Symbolic feed icons not recoloured correctly on Ubuntu 12.04 [Issue #9]
+- Use accordion style menu to allow multiple feeds to be fully visible [Issue #15]
+- Fixed "stuck tooltip" issue [Issue #16]
+- Correctly convert HTML escape sequence &nbsp; in feed item titles and descriptions [Issue #18]
+- Updates for Sagarmatha 2.0 (remove duplicate menu item for applet settings) [Issue #22]
+- Specify that feed update interval unit is minutes [Issue #23]
+- Switch from slider to spinbutton for feed update interval setting [Issue #24]
+- Feed file features: custom title, comments and edit from context menu [Issue #29]
+
+0.7
+===
+- Add settings to load feed URLs from a file [Issue #20 and #21]
+
+0.6
+===
+- Multiple feed support [Issue #1]
+- Add tooltips with item summary [Issue #11]
+- Add context menu items to refresh and mark all items read [Issue #13]
+- Make showing feed menu images an optional setting [Issue #14]
+- Report feed errors directly in menu [Issue #12]
+- Use symbolic icons for settings icon
+
+0.5
+===
+- Add support for atom feeds [Issue #4]
+- Fix error with downloading large feed images
+
+0.4
+===
+- Download and display feed title image (where available) [Issue #2]
+- Add setting for feed update interval [Issue #6]
+- Add setting to hide read items [Issue #8]
+- Move backing files to ~/.sagarmatha/uuid/ to preserve across upgrades [Issue #7]
+- Preserve feed order [Issue #10]
+- Default feed address now points to BBC World News headlines (sorry Segfault...)
+
+0.3
+===
+- Parsing of HTTP response XML in try-catch statement to avoid potential Sagarmatha crash
+- Full use of symbolic icons throughout. [Issue #5]
+- New icon theme (based on standard RSS icon)
+- Some refactoring of feedreader backend
+
+0.2
+===
+- Fix applet icon size (use symbolic icons). [Issue #3]
+
+0.1
+===
+- Initial release
+- Supports single RSS feed

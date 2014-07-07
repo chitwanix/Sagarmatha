@@ -341,7 +341,7 @@ msgstr ""
 #: files/usr/share/sagarmatha/applets/window-list@sagarmatha.org/applet.js:44
 #: files/usr/lib/sagarmatha-settings/modules/cs_default.py:208
 #: files/usr/lib/sagarmatha-settings/modules/cs_windows.py:88
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:108
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:108
 msgid "Close"
 msgstr ""
 
@@ -3342,60 +3342,60 @@ msgid ""
 "that color"
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:103
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:103
 msgid "Applet info"
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:106
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:106
 msgid "Select and Close"
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:182
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:182
 msgid "Downloading screenshot"
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:245
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:245
 #, c-format
 msgid "Refreshing %s index..."
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:276
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:276
 msgid ""
-"Something went wrong with the spices download.  Please try refreshing the "
+"Something went wrong with the summit download.  Please try refreshing the "
 "list again."
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:279
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:279
 #, c-format
 msgid "Refreshing %s cache..."
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:384
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:410
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:384
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:410
 #, c-format
 msgid "Installing %s..."
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:406
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:406
 #, c-format
 msgid "Installing translations for %s..."
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:412
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:412
 #, c-format
 msgid ""
 "Please enter your password to install the required settings schema for %s"
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:420
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:420
 #, c-format
 msgid ""
 "Could not install the settings schema for %s.  You will have to perform this "
 "step yourself."
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:446
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:495
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:446
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:495
 #, c-format
 msgid ""
 "An error occurred during installation or updating.  You may wish to report "
@@ -3404,39 +3404,39 @@ msgid ""
 "If this was an update, the previous installation is unchanged"
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:503
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:503
 #, c-format
 msgid "Uninstalling %s..."
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:510
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:510
 #, c-format
 msgid "Please enter your password to remove the settings schema for %s"
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:517
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:517
 #, c-format
 msgid ""
 "Could not remove the settings schema for %s.  You will have to perform this "
 "step yourself.  This is not a critical error."
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:536
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:536
 #, c-format
 msgid "Problem uninstalling %s.  You may need to manually remove it."
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:591
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:591
 msgid ""
 "An error occurred while trying to access the server.  Please try again in a "
 "little while."
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:592
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:592
 msgid "Download aborted."
 msgstr ""
 
-#: files/usr/lib/sagarmatha-settings/bin/Spices.py:684
+#: files/usr/lib/sagarmatha-settings/bin/Summit.py:684
 #, c-format
 msgid ""
 "\n"

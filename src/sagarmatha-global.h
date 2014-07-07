@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_GLOBAL_H__
-#define __CINNAMON_GLOBAL_H__
+#ifndef __SAGARMATHA_GLOBAL_H__
+#define __SAGARMATHA_GLOBAL_H__
 
 #include <clutter/clutter.h>
 #include <glib-object.h>
@@ -13,12 +13,12 @@ G_BEGIN_DECLS
 typedef struct _SagarmathaGlobal      SagarmathaGlobal;
 typedef struct _SagarmathaGlobalClass SagarmathaGlobalClass;
 
-#define CINNAMON_TYPE_GLOBAL              (sagarmatha_global_get_type ())
-#define CINNAMON_GLOBAL(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), CINNAMON_TYPE_GLOBAL, SagarmathaGlobal))
-#define CINNAMON_GLOBAL_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_GLOBAL, SagarmathaGlobalClass))
-#define CINNAMON_IS_GLOBAL(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), CINNAMON_TYPE_GLOBAL))
-#define CINNAMON_IS_GLOBAL_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_GLOBAL))
-#define CINNAMON_GLOBAL_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_GLOBAL, SagarmathaGlobalClass))
+#define SAGARMATHA_TYPE_GLOBAL              (sagarmatha_global_get_type ())
+#define SAGARMATHA_GLOBAL(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), SAGARMATHA_TYPE_GLOBAL, SagarmathaGlobal))
+#define SAGARMATHA_GLOBAL_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_GLOBAL, SagarmathaGlobalClass))
+#define SAGARMATHA_IS_GLOBAL(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), SAGARMATHA_TYPE_GLOBAL))
+#define SAGARMATHA_IS_GLOBAL_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_GLOBAL))
+#define SAGARMATHA_GLOBAL_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_GLOBAL, SagarmathaGlobalClass))
 
 struct _SagarmathaGlobalClass
 {
@@ -46,10 +46,10 @@ void     sagarmatha_global_end_modal              (SagarmathaGlobal         *glo
                                               guint32              timestamp);
 
 typedef enum {
-  CINNAMON_STAGE_INPUT_MODE_NONREACTIVE,
-  CINNAMON_STAGE_INPUT_MODE_NORMAL,
-  CINNAMON_STAGE_INPUT_MODE_FOCUSED,
-  CINNAMON_STAGE_INPUT_MODE_FULLSCREEN
+  SAGARMATHA_STAGE_INPUT_MODE_NONREACTIVE,
+  SAGARMATHA_STAGE_INPUT_MODE_NORMAL,
+  SAGARMATHA_STAGE_INPUT_MODE_FOCUSED,
+  SAGARMATHA_STAGE_INPUT_MODE_FULLSCREEN
 } SagarmathaStageInputMode;
 
 void     sagarmatha_global_set_stage_input_mode   (SagarmathaGlobal         *global,
@@ -59,11 +59,11 @@ void     sagarmatha_global_set_stage_input_region (SagarmathaGlobal         *glo
 
 /* X utilities */
 typedef enum {
-  CINNAMON_CURSOR_DND_IN_DRAG,
-  CINNAMON_CURSOR_DND_UNSUPPORTED_TARGET,
-  CINNAMON_CURSOR_DND_MOVE,
-  CINNAMON_CURSOR_DND_COPY,
-  CINNAMON_CURSOR_POINTING_HAND
+  SAGARMATHA_CURSOR_DND_IN_DRAG,
+  SAGARMATHA_CURSOR_DND_UNSUPPORTED_TARGET,
+  SAGARMATHA_CURSOR_DND_MOVE,
+  SAGARMATHA_CURSOR_DND_COPY,
+  SAGARMATHA_CURSOR_POINTING_HAND
 } SagarmathaCursor;
 
 void    sagarmatha_global_set_cursor              (SagarmathaGlobal         *global,
@@ -155,4 +155,4 @@ void     sagarmatha_global_reexec_self               (SagarmathaGlobal  *global)
 
 G_END_DECLS
 
-#endif /* __CINNAMON_GLOBAL_H__ */
+#endif /* __SAGARMATHA_GLOBAL_H__ */

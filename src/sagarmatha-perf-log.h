@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_PERF_LOG_H__
-#define __CINNAMON_PERF_LOG_H__
+#ifndef __SAGARMATHA_PERF_LOG_H__
+#define __SAGARMATHA_PERF_LOG_H__
 
 #include <glib-object.h>
 #include <gio/gio.h>
@@ -10,12 +10,12 @@ G_BEGIN_DECLS
 typedef struct _SagarmathaPerfLog SagarmathaPerfLog;
 typedef struct _SagarmathaPerfLogClass SagarmathaPerfLogClass;
 
-#define CINNAMON_TYPE_PERF_LOG              (sagarmatha_perf_log_get_type ())
-#define CINNAMON_PERF_LOG(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), CINNAMON_TYPE_PERF_LOG, SagarmathaPerfLog))
-#define CINNAMON_PERF_LOG_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_PERF_LOG, SagarmathaPerfLogClass))
-#define CINNAMON_IS_PERF_LOG(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), CINNAMON_TYPE_PERF_LOG))
-#define CINNAMON_IS_PERF_LOG_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_PERF_LOG))
-#define CINNAMON_PERF_LOG_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_PERF_LOG, SagarmathaPerfLogClass))
+#define SAGARMATHA_TYPE_PERF_LOG              (sagarmatha_perf_log_get_type ())
+#define SAGARMATHA_PERF_LOG(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), SAGARMATHA_TYPE_PERF_LOG, SagarmathaPerfLog))
+#define SAGARMATHA_PERF_LOG_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_PERF_LOG, SagarmathaPerfLogClass))
+#define SAGARMATHA_IS_PERF_LOG(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), SAGARMATHA_TYPE_PERF_LOG))
+#define SAGARMATHA_IS_PERF_LOG_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_PERF_LOG))
+#define SAGARMATHA_PERF_LOG_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_PERF_LOG, SagarmathaPerfLogClass))
 
 GType sagarmatha_perf_log_get_type (void) G_GNUC_CONST;
 
@@ -81,4 +81,4 @@ gboolean sagarmatha_perf_log_dump_log    (SagarmathaPerfLog   *perf_log,
 
 G_END_DECLS
 
-#endif /* __CINNAMON_PERF_LOG_H__ */
+#endif /* __SAGARMATHA_PERF_LOG_H__ */

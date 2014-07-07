@@ -20,8 +20,8 @@
  *
  */
 
-#ifndef __CINNAMON_A11Y_H_
-#define __CINNAMON_A11Y_H_
+#ifndef __SAGARMATHA_A11Y_H_
+#define __SAGARMATHA_A11Y_H_
 
 G_BEGIN_DECLS
 
@@ -29,4 +29,4 @@ void sagarmatha_a11y_init (void);
 
 G_END_DECLS
 
-#endif /* __CINNAMON_A11Y_H_ */
+#endif /* __SAGARMATHA_A11Y_H_ */

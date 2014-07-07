@@ -20,8 +20,8 @@
  *
  */
 
-#ifndef __CINNAMON_JSAPI_COMPAT_H__
-#define __CINNAMON_JSAPI_COMPAT_H__
+#ifndef __SAGARMATHA_JSAPI_COMPAT_H__
+#define __SAGARMATHA_JSAPI_COMPAT_H__
 
 #include "config.h"
 

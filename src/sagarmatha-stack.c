@@ -70,7 +70,7 @@ sagarmatha_stack_get_preferred_height (ClutterActor *actor,
                                   gfloat *min_height_p,
                                   gfloat *natural_height_p)
 {
-  SagarmathaStack *stack = CINNAMON_STACK (actor);
+  SagarmathaStack *stack = SAGARMATHA_STACK (actor);
   StThemeNode *theme_node = st_widget_get_theme_node (ST_WIDGET (actor));
   gboolean first = TRUE;
   float min = 0, natural = 0;
@@ -122,7 +122,7 @@ sagarmatha_stack_get_preferred_width (ClutterActor *actor,
                                  gfloat *min_width_p,
                                  gfloat *natural_width_p)
 {
-  SagarmathaStack *stack = CINNAMON_STACK (actor);
+  SagarmathaStack *stack = SAGARMATHA_STACK (actor);
   StThemeNode *theme_node = st_widget_get_theme_node (ST_WIDGET (actor));
   gboolean first = TRUE;
   float min = 0, natural = 0;

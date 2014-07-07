@@ -64,16 +64,16 @@ static void sagarmatha_app_system_class_init(SagarmathaAppSystemClass *klass)
   gobject_class->finalize = sagarmatha_app_system_finalize;
 
   signals[APP_STATE_CHANGED] = g_signal_new ("app-state-changed",
-                                             CINNAMON_TYPE_APP_SYSTEM,
+                                             SAGARMATHA_TYPE_APP_SYSTEM,
                                              G_SIGNAL_RUN_LAST,
                                              0,
                                              NULL, NULL,
                                              g_cclosure_marshal_VOID__OBJECT,
                                              G_TYPE_NONE, 1,
-                                             CINNAMON_TYPE_APP);
+                                             SAGARMATHA_TYPE_APP);
   signals[INSTALLED_CHANGED] =
     g_signal_new ("installed-changed",
-		  CINNAMON_TYPE_APP_SYSTEM,
+		  SAGARMATHA_TYPE_APP_SYSTEM,
 		  G_SIGNAL_RUN_LAST,
 		  G_STRUCT_OFFSET (SagarmathaAppSystemClass, installed_changed),
 		  NULL, NULL,
@@ -110,7 +110,7 @@ sagarmatha_app_system_init (SagarmathaAppSystem *self)
   SagarmathaAppSystemPrivate *priv;
 
   self->priv = priv = G_TYPE_INSTANCE_GET_PRIVATE (self,
-                                                   CINNAMON_TYPE_APP_SYSTEM,
+                                                   SAGARMATHA_TYPE_APP_SYSTEM,
                                                    SagarmathaAppSystemPrivate);
 
   priv->running_apps = g_hash_table_new_full (NULL, NULL, (GDestroyNotify) g_object_unref, NULL);
@@ -138,7 +138,7 @@ sagarmatha_app_system_init (SagarmathaAppSystem *self)
 static void
 sagarmatha_app_system_finalize (GObject *object)
 {
-  SagarmathaAppSystem *self = CINNAMON_APP_SYSTEM (object);
+  SagarmathaAppSystem *self = SAGARMATHA_APP_SYSTEM (object);
   SagarmathaAppSystemPrivate *priv = self->priv;
 
   g_object_unref (priv->apps_tree);
@@ -322,7 +322,7 @@ static void
 on_apps_tree_changed_cb (GMenuTree *tree,
                          gpointer   user_data)
 {
-  SagarmathaAppSystem *self = CINNAMON_APP_SYSTEM (user_data);
+  SagarmathaAppSystem *self = SAGARMATHA_APP_SYSTEM (user_data);
   GError *error = NULL;
   GHashTable *new_apps;
   GHashTableIter iter;
@@ -468,7 +468,7 @@ sagarmatha_app_system_get_default ()
   static SagarmathaAppSystem *instance = NULL;
 
   if (instance == NULL)
-    instance = g_object_new (CINNAMON_TYPE_APP_SYSTEM, NULL);
+    instance = g_object_new (SAGARMATHA_TYPE_APP_SYSTEM, NULL);
 
   return instance;
 }
@@ -663,12 +663,12 @@ _sagarmatha_app_system_notify_app_state_changed (SagarmathaAppSystem *self,
 
   switch (state)
     {
-    case CINNAMON_APP_STATE_RUNNING:
+    case SAGARMATHA_APP_STATE_RUNNING:
       g_hash_table_insert (self->priv->running_apps, g_object_ref (app), NULL);
       break;
-    case CINNAMON_APP_STATE_STARTING:
+    case SAGARMATHA_APP_STATE_STARTING:
       break;
-    case CINNAMON_APP_STATE_STOPPED:
+    case SAGARMATHA_APP_STATE_STOPPED:
       g_hash_table_remove (self->priv->running_apps, app);
       break;
     }

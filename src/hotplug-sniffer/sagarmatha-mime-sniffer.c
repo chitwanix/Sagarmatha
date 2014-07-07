@@ -473,7 +473,7 @@ sagarmatha_mime_sniffer_set_file (SagarmathaMimeSniffer *self,
 static void
 sagarmatha_mime_sniffer_dispose (GObject *object)
 {
-  SagarmathaMimeSniffer *self = CINNAMON_MIME_SNIFFER (object);
+  SagarmathaMimeSniffer *self = SAGARMATHA_MIME_SNIFFER (object);
 
   g_clear_object (&self->priv->file);
   g_clear_object (&self->priv->cancellable);
@@ -491,7 +491,7 @@ sagarmatha_mime_sniffer_dispose (GObject *object)
 static void
 sagarmatha_mime_sniffer_finalize (GObject *object)
 {
-  SagarmathaMimeSniffer *self = CINNAMON_MIME_SNIFFER (object);
+  SagarmathaMimeSniffer *self = SAGARMATHA_MIME_SNIFFER (object);
 
   g_strfreev (self->priv->sniffed_mime);
 
@@ -504,7 +504,7 @@ sagarmatha_mime_sniffer_get_property (GObject *object,
                                 GValue     *value,
                                 GParamSpec *pspec)
 {
-  SagarmathaMimeSniffer *self = CINNAMON_MIME_SNIFFER (object);
+  SagarmathaMimeSniffer *self = SAGARMATHA_MIME_SNIFFER (object);
 
   switch (prop_id) {
   case PROP_FILE:
@@ -522,7 +522,7 @@ sagarmatha_mime_sniffer_set_property (GObject *object,
                                 const GValue *value,
                                 GParamSpec *pspec)
 {
-  SagarmathaMimeSniffer *self = CINNAMON_MIME_SNIFFER (object);
+  SagarmathaMimeSniffer *self = SAGARMATHA_MIME_SNIFFER (object);
 
   switch (prop_id) {
   case PROP_FILE:
@@ -561,7 +561,7 @@ sagarmatha_mime_sniffer_init (SagarmathaMimeSniffer *self)
 {
   self->priv =
     G_TYPE_INSTANCE_GET_PRIVATE (self,
-                                 CINNAMON_TYPE_MIME_SNIFFER,
+                                 SAGARMATHA_TYPE_MIME_SNIFFER,
                                  SagarmathaMimeSnifferPrivate);
   init_mimetypes ();
 }
@@ -569,7 +569,7 @@ sagarmatha_mime_sniffer_init (SagarmathaMimeSniffer *self)
 SagarmathaMimeSniffer *
 sagarmatha_mime_sniffer_new (GFile *file)
 {
-  return g_object_new (CINNAMON_TYPE_MIME_SNIFFER,
+  return g_object_new (SAGARMATHA_TYPE_MIME_SNIFFER,
                        "file", file,
                        NULL);
 }

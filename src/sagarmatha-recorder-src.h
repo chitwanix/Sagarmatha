@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_RECORDER_SRC_H__
-#define __CINNAMON_RECORDER_SRC_H__
+#ifndef __SAGARMATHA_RECORDER_SRC_H__
+#define __SAGARMATHA_RECORDER_SRC_H__
 
 #include <gst/gst.h>
 
@@ -20,12 +20,12 @@ G_BEGIN_DECLS
 typedef struct _SagarmathaRecorderSrc      SagarmathaRecorderSrc;
 typedef struct _SagarmathaRecorderSrcClass SagarmathaRecorderSrcClass;
 
-#define CINNAMON_TYPE_RECORDER_SRC              (sagarmatha_recorder_src_get_type ())
-#define CINNAMON_RECORDER_SRC(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), CINNAMON_TYPE_RECORDER_SRC, SagarmathaRecorderSrc))
-#define CINNAMON_RECORDER_SRC_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_RECORDER_SRC, SagarmathaRecorderSrcClass))
-#define CINNAMON_IS_RECORDER_SRC(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), CINNAMON_TYPE_RECORDER_SRC))
-#define CINNAMON_IS_RECORDER_SRC_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_RECORDER_SRC))
-#define CINNAMON_RECORDER_SRC_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_RECORDER_SRC, SagarmathaRecorderSrcClass))
+#define SAGARMATHA_TYPE_RECORDER_SRC              (sagarmatha_recorder_src_get_type ())
+#define SAGARMATHA_RECORDER_SRC(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), SAGARMATHA_TYPE_RECORDER_SRC, SagarmathaRecorderSrc))
+#define SAGARMATHA_RECORDER_SRC_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_RECORDER_SRC, SagarmathaRecorderSrcClass))
+#define SAGARMATHA_IS_RECORDER_SRC(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), SAGARMATHA_TYPE_RECORDER_SRC))
+#define SAGARMATHA_IS_RECORDER_SRC_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_RECORDER_SRC))
+#define SAGARMATHA_RECORDER_SRC_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_RECORDER_SRC, SagarmathaRecorderSrcClass))
 
 GType              sagarmatha_recorder_src_get_type     (void) G_GNUC_CONST;
 
@@ -37,4 +37,4 @@ void sagarmatha_recorder_src_close      (SagarmathaRecorderSrc *src);
 
 G_END_DECLS
 
-#endif /* __CINNAMON_RECORDER_SRC_H__ */
+#endif /* __SAGARMATHA_RECORDER_SRC_H__ */

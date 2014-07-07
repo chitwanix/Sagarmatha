@@ -400,5 +400,5 @@ sagarmatha_screenshot_screenshot_window (SagarmathaScreenshot *screenshot,
 SagarmathaScreenshot *
 sagarmatha_screenshot_new (void)
 {
-  return g_object_new (CINNAMON_TYPE_SCREENSHOT, NULL);
+  return g_object_new (SAGARMATHA_TYPE_SCREENSHOT, NULL);
 }

@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_RECORDER_H__
-#define __CINNAMON_RECORDER_H__
+#ifndef __SAGARMATHA_RECORDER_H__
+#define __SAGARMATHA_RECORDER_H__
 
 #include <clutter/clutter.h>
 
@@ -19,12 +19,12 @@ G_BEGIN_DECLS
 typedef struct _SagarmathaRecorder      SagarmathaRecorder;
 typedef struct _SagarmathaRecorderClass SagarmathaRecorderClass;
 
-#define CINNAMON_TYPE_RECORDER              (sagarmatha_recorder_get_type ())
-#define CINNAMON_RECORDER(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), CINNAMON_TYPE_RECORDER, SagarmathaRecorder))
-#define CINNAMON_RECORDER_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_RECORDER, SagarmathaRecorderClass))
-#define CINNAMON_IS_RECORDER(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), CINNAMON_TYPE_RECORDER))
-#define CINNAMON_IS_RECORDER_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_RECORDER))
-#define CINNAMON_RECORDER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_RECORDER, SagarmathaRecorderClass))
+#define SAGARMATHA_TYPE_RECORDER              (sagarmatha_recorder_get_type ())
+#define SAGARMATHA_RECORDER(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), SAGARMATHA_TYPE_RECORDER, SagarmathaRecorder))
+#define SAGARMATHA_RECORDER_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_RECORDER, SagarmathaRecorderClass))
+#define SAGARMATHA_IS_RECORDER(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), SAGARMATHA_TYPE_RECORDER))
+#define SAGARMATHA_IS_RECORDER_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_RECORDER))
+#define SAGARMATHA_RECORDER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_RECORDER, SagarmathaRecorderClass))
 
 GType              sagarmatha_recorder_get_type     (void) G_GNUC_CONST;
 
@@ -43,4 +43,4 @@ gboolean           sagarmatha_recorder_is_recording (SagarmathaRecorder *recorde
 
 G_END_DECLS
 
-#endif /* __CINNAMON_RECORDER_H__ */
+#endif /* __SAGARMATHA_RECORDER_H__ */

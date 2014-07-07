@@ -12,7 +12,7 @@ function init() {
 
     let stage = Clutter.Stage.get_default();
     let context = St.ThemeContext.get_for_stage (stage);
-    let stylesheetPath = GLib.getenv("CINNAMON_TESTSDIR") + "/testcommon/test.css";
+    let stylesheetPath = GLib.getenv("SAGARMATHA_TESTSDIR") + "/testcommon/test.css";
     let theme = new St.Theme ({ application_stylesheet: stylesheetPath });
     context.set_theme (theme);
 }

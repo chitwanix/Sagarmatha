@@ -21,19 +21,19 @@
  *
  */
 
-#ifndef __CINNAMON_MOUNT_OPERATION_H__
-#define __CINNAMON_MOUNT_OPERATION_H__
+#ifndef __SAGARMATHA_MOUNT_OPERATION_H__
+#define __SAGARMATHA_MOUNT_OPERATION_H__
 
 #include <gio/gio.h>
 
 G_BEGIN_DECLS
 
-#define CINNAMON_TYPE_MOUNT_OPERATION         (sagarmatha_mount_operation_get_type ())
-#define CINNAMON_MOUNT_OPERATION(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CINNAMON_TYPE_MOUNT_OPERATION, SagarmathaMountOperation))
-#define CINNAMON_MOUNT_OPERATION_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CINNAMON_TYPE_MOUNT_OPERATION, SagarmathaMountOperationClass))
-#define CINNAMON_IS_MOUNT_OPERATION(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CINNAMON_TYPE_MOUNT_OPERATION))
-#define CINNAMON_IS_MOUNT_OPERATION_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CINNAMON_TYPE_MOUNT_OPERATION))
-#define CINNAMON_MOUNT_OPERATION_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CINNAMON_TYPE_MOUNT_OPERATION, SagarmathaMountOperationClass))
+#define SAGARMATHA_TYPE_MOUNT_OPERATION         (sagarmatha_mount_operation_get_type ())
+#define SAGARMATHA_MOUNT_OPERATION(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), SAGARMATHA_TYPE_MOUNT_OPERATION, SagarmathaMountOperation))
+#define SAGARMATHA_MOUNT_OPERATION_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), SAGARMATHA_TYPE_MOUNT_OPERATION, SagarmathaMountOperationClass))
+#define SAGARMATHA_IS_MOUNT_OPERATION(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), SAGARMATHA_TYPE_MOUNT_OPERATION))
+#define SAGARMATHA_IS_MOUNT_OPERATION_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), SAGARMATHA_TYPE_MOUNT_OPERATION))
+#define SAGARMATHA_MOUNT_OPERATION_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), SAGARMATHA_TYPE_MOUNT_OPERATION, SagarmathaMountOperationClass))
 
 typedef struct _SagarmathaMountOperation         SagarmathaMountOperation;
 typedef struct _SagarmathaMountOperationClass    SagarmathaMountOperationClass;
@@ -61,4 +61,4 @@ gchar * sagarmatha_mount_operation_get_show_processes_message (SagarmathaMountOp
 
 G_END_DECLS
 
-#endif /* __CINNAMON_MOUNT_OPERATION_H__ */
+#endif /* __SAGARMATHA_MOUNT_OPERATION_H__ */

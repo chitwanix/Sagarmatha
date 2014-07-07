@@ -75,7 +75,7 @@ function init() {
         return Sagarmatha.util_format_date(format, this.getTime());
     };
 
-    let slowdownEnv = GLib.getenv('CINNAMON_SLOWDOWN_FACTOR');
+    let slowdownEnv = GLib.getenv('SAGARMATHA_SLOWDOWN_FACTOR');
     if (slowdownEnv) {
         let factor = parseFloat(slowdownEnv);
         if (!isNaN(factor) && factor > 0.0)

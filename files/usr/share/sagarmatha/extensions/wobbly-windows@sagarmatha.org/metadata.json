@@ -1,0 +1,6 @@
+{
+  "description": "Wobbly Effect as of compiz", 
+  "name": "Wobbly Windows", 
+  "sagarmatha-version": ["1.0"],
+  "uuid": "wobbly-windows@sagarmatha.org"
+}

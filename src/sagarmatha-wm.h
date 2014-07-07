@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_WM_H__
-#define __CINNAMON_WM_H__
+#ifndef __SAGARMATHA_WM_H__
+#define __SAGARMATHA_WM_H__
 
 #include <glib-object.h>
 #include <meta/meta-plugin.h>
@@ -10,12 +10,12 @@ G_BEGIN_DECLS
 typedef struct _SagarmathaWM      SagarmathaWM;
 typedef struct _SagarmathaWMClass SagarmathaWMClass;
 
-#define CINNAMON_TYPE_WM              (sagarmatha_wm_get_type ())
-#define CINNAMON_WM(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), CINNAMON_TYPE_WM, SagarmathaWM))
-#define CINNAMON_WM_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_WM, SagarmathaWMClass))
-#define CINNAMON_IS_WM(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), CINNAMON_TYPE_WM))
-#define CINNAMON_IS_WM_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_WM))
-#define CINNAMON_WM_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_WM, SagarmathaWMClass))
+#define SAGARMATHA_TYPE_WM              (sagarmatha_wm_get_type ())
+#define SAGARMATHA_WM(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), SAGARMATHA_TYPE_WM, SagarmathaWM))
+#define SAGARMATHA_WM_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_WM, SagarmathaWMClass))
+#define SAGARMATHA_IS_WM(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), SAGARMATHA_TYPE_WM))
+#define SAGARMATHA_IS_WM_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_WM))
+#define SAGARMATHA_WM_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_WM, SagarmathaWMClass))
 
 struct _SagarmathaWMClass
 {
@@ -43,4 +43,4 @@ void     sagarmatha_wm_completed_switch_workspace (SagarmathaWM         *wm);
 
 G_END_DECLS
 
-#endif /* __CINNAMON_WM_H__ */
+#endif /* __SAGARMATHA_WM_H__ */

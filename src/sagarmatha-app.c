@@ -98,7 +98,7 @@ sagarmatha_app_get_property (GObject    *gobject,
                         GValue     *value,
                         GParamSpec *pspec)
 {
-  SagarmathaApp *app = CINNAMON_APP (gobject);
+  SagarmathaApp *app = SAGARMATHA_APP (gobject);
 
   switch (prop_id)
     {
@@ -463,7 +463,7 @@ sagarmatha_app_activate_window (SagarmathaApp     *app,
 {
   GSList *windows;
 
-  if (sagarmatha_app_get_state (app) != CINNAMON_APP_STATE_RUNNING)
+  if (sagarmatha_app_get_state (app) != SAGARMATHA_APP_STATE_RUNNING)
     return;
 
   windows = sagarmatha_app_get_windows (app);
@@ -567,7 +567,7 @@ sagarmatha_app_activate_full (SagarmathaApp      *app,
 
   switch (app->state)
     {
-      case CINNAMON_APP_STATE_STOPPED:
+      case SAGARMATHA_APP_STATE_STOPPED:
         {
           GError *error = NULL;
           if (!sagarmatha_app_launch (app,
@@ -587,9 +587,9 @@ sagarmatha_app_activate_full (SagarmathaApp      *app,
             }
         }
         break;
-      case CINNAMON_APP_STATE_STARTING:
+      case SAGARMATHA_APP_STATE_STARTING:
         break;
-      case CINNAMON_APP_STATE_RUNNING:
+      case SAGARMATHA_APP_STATE_RUNNING:
         sagarmatha_app_activate_window (app, NULL, timestamp);
         break;
     }
@@ -733,7 +733,7 @@ sagarmatha_app_is_on_workspace (SagarmathaApp *app,
 {
   GSList *iter;
 
-  if (sagarmatha_app_get_state (app) == CINNAMON_APP_STATE_STARTING)
+  if (sagarmatha_app_get_state (app) == SAGARMATHA_APP_STATE_STARTING)
     {
       if (app->started_on_workspace == -1 ||
           meta_workspace_index (workspace) == app->started_on_workspace)
@@ -774,7 +774,7 @@ sagarmatha_app_compare (SagarmathaApp *app,
 
   if (app->state != other->state)
     {
-      if (app->state == CINNAMON_APP_STATE_RUNNING)
+      if (app->state == SAGARMATHA_APP_STATE_RUNNING)
         return -1;
       return 1;
     }
@@ -787,7 +787,7 @@ sagarmatha_app_compare (SagarmathaApp *app,
   else if (!vis_app && vis_other)
     return 1;
 
-  if (app->state == CINNAMON_APP_STATE_RUNNING)
+  if (app->state == SAGARMATHA_APP_STATE_RUNNING)
     {
       if (app->running_state->windows && !other->running_state->windows)
         return -1;
@@ -804,7 +804,7 @@ _sagarmatha_app_new_for_window (MetaWindow      *window)
 {
   SagarmathaApp *app;
 
-  app = g_object_new (CINNAMON_TYPE_APP, NULL);
+  app = g_object_new (SAGARMATHA_TYPE_APP, NULL);
 
   app->window_id_string = g_strdup_printf ("window:%d", meta_window_get_stable_sequence (window));
 
@@ -818,7 +818,7 @@ _sagarmatha_app_new (GMenuTreeEntry *info)
 {
   SagarmathaApp *app;
 
-  app = g_object_new (CINNAMON_TYPE_APP, NULL);
+  app = g_object_new (SAGARMATHA_TYPE_APP, NULL);
 
   _sagarmatha_app_set_entry (app, info);
 
@@ -844,11 +844,11 @@ sagarmatha_app_state_transition (SagarmathaApp      *app,
 {
   if (app->state == state)
     return;
-  g_return_if_fail (!(app->state == CINNAMON_APP_STATE_RUNNING &&
-                      state == CINNAMON_APP_STATE_STARTING));
+  g_return_if_fail (!(app->state == SAGARMATHA_APP_STATE_RUNNING &&
+                      state == SAGARMATHA_APP_STATE_STARTING));
   app->state = state;
 
-  if (app->state == CINNAMON_APP_STATE_STOPPED && app->running_state)
+  if (app->state == SAGARMATHA_APP_STATE_STOPPED && app->running_state)
     {
       unref_running_state (app->running_state);
       app->running_state = NULL;
@@ -892,7 +892,7 @@ sagarmatha_app_on_ws_switch (MetaScreen         *screen,
                         MetaMotionDirection direction,
                         gpointer            data)
 {
-  SagarmathaApp *app = CINNAMON_APP (data);
+  SagarmathaApp *app = SAGARMATHA_APP (data);
 
   g_assert (app->running_state != NULL);
 
@@ -924,8 +924,8 @@ _sagarmatha_app_add_window (SagarmathaApp        *app,
   if (user_time > app->running_state->last_user_time)
     app->running_state->last_user_time = user_time;
 
-  if (app->state != CINNAMON_APP_STATE_STARTING)
-    sagarmatha_app_state_transition (app, CINNAMON_APP_STATE_RUNNING);
+  if (app->state != SAGARMATHA_APP_STATE_STARTING)
+    sagarmatha_app_state_transition (app, SAGARMATHA_APP_STATE_RUNNING);
 
   g_object_thaw_notify (G_OBJECT (app));
 
@@ -947,7 +947,7 @@ _sagarmatha_app_remove_window (SagarmathaApp   *app,
   app->running_state->windows = g_slist_remove (app->running_state->windows, window);
 
   if (app->running_state->windows == NULL)
-    sagarmatha_app_state_transition (app, CINNAMON_APP_STATE_STOPPED);
+    sagarmatha_app_state_transition (app, SAGARMATHA_APP_STATE_STOPPED);
 
   g_signal_emit (app, sagarmatha_app_signals[WINDOWS_CHANGED], 0);
 }
@@ -990,12 +990,12 @@ _sagarmatha_app_handle_startup_sequence (SagarmathaApp          *app,
    * if it's currently stopped, set it as our application focus,
    * but focus the no_focus window.
    */
-  if (starting && sagarmatha_app_get_state (app) == CINNAMON_APP_STATE_STOPPED)
+  if (starting && sagarmatha_app_get_state (app) == SAGARMATHA_APP_STATE_STOPPED)
     {
       MetaScreen *screen = sagarmatha_global_get_screen (sagarmatha_global_get ());
       MetaDisplay *display = meta_screen_get_display (screen);
 
-      sagarmatha_app_state_transition (app, CINNAMON_APP_STATE_STARTING);
+      sagarmatha_app_state_transition (app, SAGARMATHA_APP_STATE_STARTING);
       meta_display_focus_the_no_focus_window (display, screen,
                                               sn_startup_sequence_get_timestamp (sequence));
       app->started_on_workspace = sn_startup_sequence_get_workspace (sequence);
@@ -1004,9 +1004,9 @@ _sagarmatha_app_handle_startup_sequence (SagarmathaApp          *app,
   if (!starting)
     {
       if (app->running_state && app->running_state->windows)
-        sagarmatha_app_state_transition (app, CINNAMON_APP_STATE_RUNNING);
+        sagarmatha_app_state_transition (app, SAGARMATHA_APP_STATE_RUNNING);
       else /* application have > 1 .desktop file */
-        sagarmatha_app_state_transition (app, CINNAMON_APP_STATE_STOPPED);
+        sagarmatha_app_state_transition (app, SAGARMATHA_APP_STATE_STOPPED);
     }
 }
 
@@ -1027,7 +1027,7 @@ sagarmatha_app_request_quit (SagarmathaApp   *app)
 {
   GSList *iter;
 
-  if (sagarmatha_app_get_state (app) != CINNAMON_APP_STATE_RUNNING)
+  if (sagarmatha_app_get_state (app) != SAGARMATHA_APP_STATE_RUNNING)
     return FALSE;
 
   /* TODO - check for an XSMP connection; we could probably use that */
@@ -1054,7 +1054,7 @@ _gather_pid_callback (GDesktopAppInfo   *gapp,
 
   g_return_if_fail (data != NULL);
 
-  app = CINNAMON_APP (data);
+  app = SAGARMATHA_APP (data);
   tracker = sagarmatha_window_tracker_get_default ();
 
   _sagarmatha_window_tracker_add_child_process_app (tracker,
@@ -1333,13 +1333,13 @@ _sagarmatha_app_do_match (SagarmathaApp         *app,
 static void
 sagarmatha_app_init (SagarmathaApp *self)
 {
-  self->state = CINNAMON_APP_STATE_STOPPED;
+  self->state = SAGARMATHA_APP_STATE_STOPPED;
 }
 
 static void
 sagarmatha_app_dispose (GObject *object)
 {
-  SagarmathaApp *app = CINNAMON_APP (object);
+  SagarmathaApp *app = SAGARMATHA_APP (object);
 
   if (app->entry)
     {
@@ -1359,7 +1359,7 @@ sagarmatha_app_dispose (GObject *object)
 static void
 sagarmatha_app_finalize (GObject *object)
 {
-  SagarmathaApp *app = CINNAMON_APP (object);
+  SagarmathaApp *app = SAGARMATHA_APP (object);
 
   g_free (app->window_id_string);
 
@@ -1381,7 +1381,7 @@ sagarmatha_app_class_init(SagarmathaAppClass *klass)
   gobject_class->finalize = sagarmatha_app_finalize;
 
   sagarmatha_app_signals[WINDOWS_CHANGED] = g_signal_new ("windows-changed",
-                                     CINNAMON_TYPE_APP,
+                                     SAGARMATHA_TYPE_APP,
                                      G_SIGNAL_RUN_LAST,
                                      0,
                                      NULL, NULL,
@@ -1399,7 +1399,7 @@ sagarmatha_app_class_init(SagarmathaAppClass *klass)
                                    g_param_spec_enum ("state",
                                                       "State",
                                                       "Application state",
-                                                      CINNAMON_TYPE_APP_STATE,
-                                                      CINNAMON_APP_STATE_STOPPED,
+                                                      SAGARMATHA_TYPE_APP_STATE,
+                                                      SAGARMATHA_APP_STATE_STOPPED,
                                                       G_PARAM_READABLE));
 }

@@ -325,7 +325,7 @@ sagarmatha_wm_new (MetaPlugin *plugin)
 {
   SagarmathaWM *wm;
 
-  wm = g_object_new (CINNAMON_TYPE_WM, NULL);
+  wm = g_object_new (SAGARMATHA_TYPE_WM, NULL);
   wm->plugin = plugin;
 
   return wm;

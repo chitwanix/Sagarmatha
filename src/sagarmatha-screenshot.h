@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_SCREENSHOT_H__
-#define __CINNAMON_SCREENSHOT_H__
+#ifndef __SAGARMATHA_SCREENSHOT_H__
+#define __SAGARMATHA_SCREENSHOT_H__
 
 /**
  * SECTION:sagarmatha-screenshot
@@ -14,12 +14,12 @@
 typedef struct _SagarmathaScreenshot      SagarmathaScreenshot;
 typedef struct _SagarmathaScreenshotClass SagarmathaScreenshotClass;
 
-#define CINNAMON_TYPE_SCREENSHOT              (sagarmatha_screenshot_get_type ())
-#define CINNAMON_SCREENSHOT(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), CINNAMON_TYPE_SCREENSHOT, SagarmathaScreenshot))
-#define CINNAMON_SCREENSHOT_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_SCREENSHOT, SagarmathaScreenshotClass))
-#define CINNAMON_IS_SCREENSHOT(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), CINNAMON_TYPE_SCREENSHOT))
-#define CINNAMON_IS_SCREENSHOT_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_SCREENSHOT))
-#define CINNAMON_SCREENSHOT_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_SCREENSHOT, SagarmathaScreenshotClass))
+#define SAGARMATHA_TYPE_SCREENSHOT              (sagarmatha_screenshot_get_type ())
+#define SAGARMATHA_SCREENSHOT(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), SAGARMATHA_TYPE_SCREENSHOT, SagarmathaScreenshot))
+#define SAGARMATHA_SCREENSHOT_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_SCREENSHOT, SagarmathaScreenshotClass))
+#define SAGARMATHA_IS_SCREENSHOT(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), SAGARMATHA_TYPE_SCREENSHOT))
+#define SAGARMATHA_IS_SCREENSHOT_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_SCREENSHOT))
+#define SAGARMATHA_SCREENSHOT_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_SCREENSHOT, SagarmathaScreenshotClass))
 
 GType sagarmatha_screenshot_get_type (void) G_GNUC_CONST;
 
@@ -49,4 +49,4 @@ void    sagarmatha_screenshot_screenshot           (SagarmathaScreenshot *screen
                                                 const char *filename,
                                                 SagarmathaScreenshotCallback callback);
 
-#endif /* ___CINNAMON_SCREENSHOT_H__ */
+#endif /* ___SAGARMATHA_SCREENSHOT_H__ */

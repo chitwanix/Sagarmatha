@@ -1,7 +1,7 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
 
-#ifndef __CINNAMON_UTIL_H__
-#define __CINNAMON_UTIL_H__
+#ifndef __SAGARMATHA_UTIL_H__
+#define __SAGARMATHA_UTIL_H__
 
 #include <gio/gio.h>
 #include <clutter/clutter.h>
@@ -54,4 +54,4 @@ void sagarmatha_shader_effect_set_double_uniform (ClutterShaderEffect *effect,
 
 G_END_DECLS
 
-#endif /* __CINNAMON_UTIL_H__ */
+#endif /* __SAGARMATHA_UTIL_H__ */

@@ -1,0 +1,8 @@
+{
+    "uuid": "rssfeeds@sagarmatha.org",
+    "name": "Feeds Reader",
+    "description": "Displays RSS news feeds",
+    "version": 0.11,
+    "url": "rssfeeds@sagarmatha.org",
+    "max-instances": "10"
+}

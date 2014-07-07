@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_SCREEN_GRABBER_H__
-#define __CINNAMON_SCREEN_GRABBER_H__
+#ifndef __SAGARMATHA_SCREEN_GRABBER_H__
+#define __SAGARMATHA_SCREEN_GRABBER_H__
 
 #include <glib-object.h>
 
@@ -23,12 +23,12 @@ G_BEGIN_DECLS
 typedef struct _SagarmathaScreenGrabber      SagarmathaScreenGrabber;
 typedef struct _SagarmathaScreenGrabberClass SagarmathaScreenGrabberClass;
 
-#define CINNAMON_TYPE_SCREEN_GRABBER              (sagarmatha_screen_grabber_get_type ())
-#define CINNAMON_SCREEN_GRABBER(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), CINNAMON_TYPE_SCREEN_GRABBER, SagarmathaScreenGrabber))
-#define CINNAMON_SCREEN_GRABBER_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_SCREEN_GRABBER, SagarmathaScreenGrabberClass))
-#define CINNAMON_IS_SCREEN_GRABBER(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), CINNAMON_TYPE_SCREEN_GRABBER))
-#define CINNAMON_IS_SCREEN_GRABBER_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_SCREEN_GRABBER))
-#define CINNAMON_SCREEN_GRABBER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_SCREEN_GRABBER, SagarmathaScreenGrabberClass))
+#define SAGARMATHA_TYPE_SCREEN_GRABBER              (sagarmatha_screen_grabber_get_type ())
+#define SAGARMATHA_SCREEN_GRABBER(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), SAGARMATHA_TYPE_SCREEN_GRABBER, SagarmathaScreenGrabber))
+#define SAGARMATHA_SCREEN_GRABBER_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_SCREEN_GRABBER, SagarmathaScreenGrabberClass))
+#define SAGARMATHA_IS_SCREEN_GRABBER(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), SAGARMATHA_TYPE_SCREEN_GRABBER))
+#define SAGARMATHA_IS_SCREEN_GRABBER_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_SCREEN_GRABBER))
+#define SAGARMATHA_SCREEN_GRABBER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_SCREEN_GRABBER, SagarmathaScreenGrabberClass))
 
 GType sagarmatha_screen_grabber_get_type (void) G_GNUC_CONST;
 
@@ -41,4 +41,4 @@ guchar *            sagarmatha_screen_grabber_grab (SagarmathaScreenGrabber *gra
 
 G_END_DECLS
 
-#endif /* __CINNAMON_SCREEN_GRABBER_H__ */
+#endif /* __SAGARMATHA_SCREEN_GRABBER_H__ */

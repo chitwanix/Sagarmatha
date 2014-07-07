@@ -1,16 +1,16 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_DOC_SYSTEM_H__
-#define __CINNAMON_DOC_SYSTEM_H__
+#ifndef __SAGARMATHA_DOC_SYSTEM_H__
+#define __SAGARMATHA_DOC_SYSTEM_H__
 
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
-#define CINNAMON_TYPE_DOC_SYSTEM                 (sagarmatha_doc_system_get_type ())
-#define CINNAMON_DOC_SYSTEM(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), CINNAMON_TYPE_DOC_SYSTEM, SagarmathaDocSystem))
-#define CINNAMON_DOC_SYSTEM_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_DOC_SYSTEM, SagarmathaDocSystemClass))
-#define CINNAMON_IS_DOC_SYSTEM(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CINNAMON_TYPE_DOC_SYSTEM))
-#define CINNAMON_IS_DOC_SYSTEM_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_DOC_SYSTEM))
-#define CINNAMON_DOC_SYSTEM_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_DOC_SYSTEM, SagarmathaDocSystemClass))
+#define SAGARMATHA_TYPE_DOC_SYSTEM                 (sagarmatha_doc_system_get_type ())
+#define SAGARMATHA_DOC_SYSTEM(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), SAGARMATHA_TYPE_DOC_SYSTEM, SagarmathaDocSystem))
+#define SAGARMATHA_DOC_SYSTEM_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_DOC_SYSTEM, SagarmathaDocSystemClass))
+#define SAGARMATHA_IS_DOC_SYSTEM(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), SAGARMATHA_TYPE_DOC_SYSTEM))
+#define SAGARMATHA_IS_DOC_SYSTEM_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_DOC_SYSTEM))
+#define SAGARMATHA_DOC_SYSTEM_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_DOC_SYSTEM, SagarmathaDocSystemClass))
 
 typedef struct _SagarmathaDocSystem SagarmathaDocSystem;
 typedef struct _SagarmathaDocSystemClass SagarmathaDocSystemClass;
@@ -44,4 +44,4 @@ void sagarmatha_doc_system_open (SagarmathaDocSystem *system,
                             GtkRecentInfo  *info,
                             int             workspace);
 
-#endif /* __CINNAMON_DOC_SYSTEM_H__ */
+#endif /* __SAGARMATHA_DOC_SYSTEM_H__ */

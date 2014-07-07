@@ -25,12 +25,12 @@ struct _SagarmathaTrayIconPrivate
   char *title, *wm_class;
 };
 
-G_DEFINE_TYPE (SagarmathaTrayIcon, sagarmatha_tray_icon, CINNAMON_TYPE_GTK_EMBED);
+G_DEFINE_TYPE (SagarmathaTrayIcon, sagarmatha_tray_icon, SAGARMATHA_TYPE_GTK_EMBED);
 
 static void
 sagarmatha_tray_icon_finalize (GObject *object)
 {
-  SagarmathaTrayIcon *icon = CINNAMON_TRAY_ICON (object);
+  SagarmathaTrayIcon *icon = SAGARMATHA_TRAY_ICON (object);
 
   g_free (icon->priv->title);
   g_free (icon->priv->wm_class);
@@ -42,7 +42,7 @@ static void
 sagarmatha_tray_icon_constructed (GObject *object)
 {
   GdkWindow *icon_app_window;
-  SagarmathaTrayIcon *icon = CINNAMON_TRAY_ICON (object);
+  SagarmathaTrayIcon *icon = SAGARMATHA_TRAY_ICON (object);
   SagarmathaEmbeddedWindow *window;
   GdkDisplay *display;
   Window plug_xid;
@@ -90,7 +90,7 @@ sagarmatha_tray_icon_get_property (GObject         *object,
                               GValue          *value,
                               GParamSpec      *pspec)
 {
-  SagarmathaTrayIcon *icon = CINNAMON_TRAY_ICON (object);
+  SagarmathaTrayIcon *icon = SAGARMATHA_TRAY_ICON (object);
 
   switch (prop_id)
     {
@@ -149,7 +149,7 @@ sagarmatha_tray_icon_class_init (SagarmathaTrayIconClass *klass)
 static void
 sagarmatha_tray_icon_init (SagarmathaTrayIcon *icon)
 {
-  icon->priv = G_TYPE_INSTANCE_GET_PRIVATE (icon, CINNAMON_TYPE_TRAY_ICON,
+  icon->priv = G_TYPE_INSTANCE_GET_PRIVATE (icon, SAGARMATHA_TYPE_TRAY_ICON,
                                             SagarmathaTrayIconPrivate);
 }
 
@@ -159,9 +159,9 @@ sagarmatha_tray_icon_init (SagarmathaTrayIcon *icon)
 ClutterActor *
 sagarmatha_tray_icon_new (SagarmathaEmbeddedWindow *window)
 {
-  g_return_val_if_fail (CINNAMON_IS_EMBEDDED_WINDOW (window), NULL);
+  g_return_val_if_fail (SAGARMATHA_IS_EMBEDDED_WINDOW (window), NULL);
 
-  return g_object_new (CINNAMON_TYPE_TRAY_ICON,
+  return g_object_new (SAGARMATHA_TYPE_TRAY_ICON,
                        "window", window,
                        NULL);
 }

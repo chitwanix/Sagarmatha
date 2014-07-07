@@ -83,7 +83,7 @@ static GstFlowReturn
 sagarmatha_recorder_src_create (GstPushSrc  *push_src,
 			   GstBuffer  **buffer_out)
 {
-  SagarmathaRecorderSrc *src = CINNAMON_RECORDER_SRC (push_src);
+  SagarmathaRecorderSrc *src = SAGARMATHA_RECORDER_SRC (push_src);
   GstBuffer *buffer;
 
   if (src->closed)
@@ -132,7 +132,7 @@ sagarmatha_recorder_src_set_caps (SagarmathaRecorderSrc *src,
 static void
 sagarmatha_recorder_src_finalize (GObject *object)
 {
-  SagarmathaRecorderSrc *src = CINNAMON_RECORDER_SRC (object);
+  SagarmathaRecorderSrc *src = SAGARMATHA_RECORDER_SRC (object);
 
   if (src->memory_used_update_idle)
     g_source_remove (src->memory_used_update_idle);
@@ -151,7 +151,7 @@ sagarmatha_recorder_src_set_property (GObject      *object,
 				 const GValue *value,
 				 GParamSpec   *pspec)
 {
-  SagarmathaRecorderSrc *src = CINNAMON_RECORDER_SRC (object);
+  SagarmathaRecorderSrc *src = SAGARMATHA_RECORDER_SRC (object);
 
   switch (prop_id)
     {
@@ -170,7 +170,7 @@ sagarmatha_recorder_src_get_property (GObject         *object,
 				 GValue          *value,
 				 GParamSpec      *pspec)
 {
-  SagarmathaRecorderSrc *src = CINNAMON_RECORDER_SRC (object);
+  SagarmathaRecorderSrc *src = SAGARMATHA_RECORDER_SRC (object);
 
   switch (prop_id)
     {
@@ -243,7 +243,7 @@ void
 sagarmatha_recorder_src_add_buffer (SagarmathaRecorderSrc *src,
 			       GstBuffer        *buffer)
 {
-  g_return_if_fail (CINNAMON_IS_RECORDER_SRC (src));
+  g_return_if_fail (SAGARMATHA_IS_RECORDER_SRC (src));
   g_return_if_fail (src->caps != NULL);
 
   gst_buffer_set_caps (buffer, src->caps);
@@ -273,7 +273,7 @@ static gboolean
 plugin_init (GstPlugin *plugin)
 {
   gst_element_register(plugin, "sagarmatharecordersrc", GST_RANK_NONE,
-		       CINNAMON_TYPE_RECORDER_SRC);
+		       SAGARMATHA_TYPE_RECORDER_SRC);
 
   return TRUE;
 }

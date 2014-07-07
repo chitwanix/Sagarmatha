@@ -134,7 +134,7 @@ sagarmatha_global_set_property(GObject         *object,
                           const GValue    *value,
                           GParamSpec      *pspec)
 {
-  SagarmathaGlobal *global = CINNAMON_GLOBAL (object);
+  SagarmathaGlobal *global = SAGARMATHA_GLOBAL (object);
 
   switch (prop_id)
     {
@@ -153,7 +153,7 @@ sagarmatha_global_get_property(GObject         *object,
                           GValue          *value,
                           GParamSpec      *pspec)
 {
-  SagarmathaGlobal *global = CINNAMON_GLOBAL (object);
+  SagarmathaGlobal *global = SAGARMATHA_GLOBAL (object);
 
   switch (prop_id)
     {
@@ -230,12 +230,12 @@ sagarmatha_global_get_property(GObject         *object,
 static void
 sagarmatha_global_init (SagarmathaGlobal *global)
 {
-  const char *datadir = g_getenv ("CINNAMON_DATADIR");
-  const char *sagarmatha_js = g_getenv("CINNAMON_JS");
+  const char *datadir = g_getenv ("SAGARMATHA_DATADIR");
+  const char *sagarmatha_js = g_getenv("SAGARMATHA_JS");
   char *imagedir, **search_path;
 
   if (!datadir)
-    datadir = CINNAMON_DATADIR;
+    datadir = SAGARMATHA_DATADIR;
   global->datadir = datadir;
 
   /* We make sure imagedir ends with a '/', since the JS won't have
@@ -261,7 +261,7 @@ sagarmatha_global_init (SagarmathaGlobal *global)
   g_signal_connect (global->grab_notifier, "grab-notify", G_CALLBACK (grab_notify), global);
   global->gtk_grab_active = FALSE;
 
-  global->input_mode = CINNAMON_STAGE_INPUT_MODE_NORMAL;
+  global->input_mode = SAGARMATHA_STAGE_INPUT_MODE_NORMAL;
 
   ca_context_create (&global->sound_context);
   ca_context_change_props (global->sound_context, CA_PROP_APPLICATION_NAME, PACKAGE_NAME, CA_PROP_APPLICATION_ID, "org.Sagarmatha", NULL);
@@ -283,7 +283,7 @@ sagarmatha_global_init (SagarmathaGlobal *global)
 static void
 sagarmatha_global_finalize (GObject *object)
 {
-  SagarmathaGlobal *global = CINNAMON_GLOBAL (object);
+  SagarmathaGlobal *global = SAGARMATHA_GLOBAL (object);
 
   g_object_unref (global->js_context);
   gtk_widget_destroy (GTK_WIDGET (global->grab_notifier));
@@ -402,8 +402,8 @@ sagarmatha_global_class_init (SagarmathaGlobalClass *klass)
                                    g_param_spec_enum ("stage-input-mode",
                                                       "Stage input mode",
                                                       "The stage input mode",
-                                                      CINNAMON_TYPE_STAGE_INPUT_MODE,
-                                                      CINNAMON_STAGE_INPUT_MODE_NORMAL,
+                                                      SAGARMATHA_TYPE_STAGE_INPUT_MODE,
+                                                      SAGARMATHA_STAGE_INPUT_MODE_NORMAL,
                                                       G_PARAM_READWRITE));
   g_object_class_install_property (gobject_class,
                                    PROP_BOTTOM_WINDOW_GROUP,
@@ -438,7 +438,7 @@ sagarmatha_global_class_init (SagarmathaGlobalClass *klass)
                                    g_param_spec_object ("window-manager",
                                                         "Window Manager",
                                                         "Window management interface",
-                                                        CINNAMON_TYPE_WM,
+                                                        SAGARMATHA_TYPE_WM,
                                                         G_PARAM_READABLE));
   g_object_class_install_property (gobject_class,
                                    PROP_SETTINGS,
@@ -501,7 +501,7 @@ _sagarmatha_global_init (const char *first_property_name,
   g_return_if_fail (the_object == NULL);
 
   va_start (argument_list, first_property_name);
-  the_object = CINNAMON_GLOBAL (g_object_new_valist (CINNAMON_TYPE_GLOBAL,
+  the_object = SAGARMATHA_GLOBAL (g_object_new_valist (SAGARMATHA_TYPE_GLOBAL,
                                                   first_property_name,
                                                   argument_list));
   va_end (argument_list);
@@ -528,9 +528,9 @@ focus_window_changed (MetaDisplay *display,
 {
   SagarmathaGlobal *global = user_data;
 
-  if (global->input_mode == CINNAMON_STAGE_INPUT_MODE_FOCUSED &&
+  if (global->input_mode == SAGARMATHA_STAGE_INPUT_MODE_FOCUSED &&
       meta_display_get_focus_window (display) != NULL)
-    sagarmatha_global_set_stage_input_mode (global, CINNAMON_STAGE_INPUT_MODE_NORMAL);
+    sagarmatha_global_set_stage_input_mode (global, SAGARMATHA_STAGE_INPUT_MODE_NORMAL);
 }
 
 static void
@@ -547,23 +547,23 @@ sagarmatha_global_focus_stage (SagarmathaGlobal *global)
  * @mode: the stage input mode
  *
  * Sets the input mode of the stage; when @mode is
- * %CINNAMON_STAGE_INPUT_MODE_NONREACTIVE, then the stage does not absorb
+ * %SAGARMATHA_STAGE_INPUT_MODE_NONREACTIVE, then the stage does not absorb
  * any clicks, but just passes them through to underlying windows.
- * When it is %CINNAMON_STAGE_INPUT_MODE_NORMAL, then the stage accepts
+ * When it is %SAGARMATHA_STAGE_INPUT_MODE_NORMAL, then the stage accepts
  * clicks in the region defined by
  * sagarmatha_global_set_stage_input_region() but passes through clicks
- * outside that region. When it is %CINNAMON_STAGE_INPUT_MODE_FULLSCREEN,
+ * outside that region. When it is %SAGARMATHA_STAGE_INPUT_MODE_FULLSCREEN,
  * the stage absorbs all input.
  *
- * When the input mode is %CINNAMON_STAGE_INPUT_MODE_FOCUSED, the pointer
- * is handled as with %CINNAMON_STAGE_INPUT_MODE_NORMAL, but additionally
+ * When the input mode is %SAGARMATHA_STAGE_INPUT_MODE_FOCUSED, the pointer
+ * is handled as with %SAGARMATHA_STAGE_INPUT_MODE_NORMAL, but additionally
  * the stage window has the keyboard focus. If the stage loses the
  * focus (eg, because the user clicked into a window) the input mode
- * will revert to %CINNAMON_STAGE_INPUT_MODE_NORMAL.
+ * will revert to %SAGARMATHA_STAGE_INPUT_MODE_NORMAL.
  *
  * Note that whenever a muffin-internal Gtk widget has a pointer grab,
  * Sagarmatha behaves as though it was in
- * %CINNAMON_STAGE_INPUT_MODE_NONREACTIVE, to ensure that the widget gets
+ * %SAGARMATHA_STAGE_INPUT_MODE_NONREACTIVE, to ensure that the widget gets
  * any clicks it is expecting.
  */
 void
@@ -572,18 +572,18 @@ sagarmatha_global_set_stage_input_mode (SagarmathaGlobal         *global,
 {
   MetaScreen *screen;
 
-  g_return_if_fail (CINNAMON_IS_GLOBAL (global));
+  g_return_if_fail (SAGARMATHA_IS_GLOBAL (global));
 
   screen = meta_plugin_get_screen (global->plugin);
 
-  if (mode == CINNAMON_STAGE_INPUT_MODE_NONREACTIVE || global->gtk_grab_active)
+  if (mode == SAGARMATHA_STAGE_INPUT_MODE_NONREACTIVE || global->gtk_grab_active)
     meta_empty_stage_input_region (screen);
-  else if (mode == CINNAMON_STAGE_INPUT_MODE_FULLSCREEN || !global->input_region)
+  else if (mode == SAGARMATHA_STAGE_INPUT_MODE_FULLSCREEN || !global->input_region)
     meta_set_stage_input_region (screen, None);
   else
     meta_set_stage_input_region (screen, global->input_region);
 
-  if (mode == CINNAMON_STAGE_INPUT_MODE_FOCUSED)
+  if (mode == SAGARMATHA_STAGE_INPUT_MODE_FOCUSED)
     sagarmatha_global_focus_stage (global);
 
   if (mode != global->input_mode)
@@ -609,19 +609,19 @@ sagarmatha_global_set_cursor (SagarmathaGlobal *global,
 
   switch (type)
     {
-    case CINNAMON_CURSOR_DND_IN_DRAG:
+    case SAGARMATHA_CURSOR_DND_IN_DRAG:
       name = "dnd-none";
       break;
-    case CINNAMON_CURSOR_DND_MOVE:
+    case SAGARMATHA_CURSOR_DND_MOVE:
       name = "dnd-move";
       break;
-    case CINNAMON_CURSOR_DND_COPY:
+    case SAGARMATHA_CURSOR_DND_COPY:
       name = "dnd-copy";
       break;
-    case CINNAMON_CURSOR_DND_UNSUPPORTED_TARGET:
+    case SAGARMATHA_CURSOR_DND_UNSUPPORTED_TARGET:
       name = "dnd-none";
       break;
-    case CINNAMON_CURSOR_POINTING_HAND:
+    case SAGARMATHA_CURSOR_POINTING_HAND:
       name = "hand";
       break;
     default:
@@ -634,19 +634,19 @@ sagarmatha_global_set_cursor (SagarmathaGlobal *global,
       GdkCursorType cursor_type;
       switch (type)
         {
-        case CINNAMON_CURSOR_DND_IN_DRAG:
+        case SAGARMATHA_CURSOR_DND_IN_DRAG:
           cursor_type = GDK_FLEUR;
           break;
-        case CINNAMON_CURSOR_DND_MOVE:
+        case SAGARMATHA_CURSOR_DND_MOVE:
           cursor_type = GDK_TARGET;
           break;
-        case CINNAMON_CURSOR_DND_COPY:
+        case SAGARMATHA_CURSOR_DND_COPY:
           cursor_type = GDK_PLUS;
           break;
-        case CINNAMON_CURSOR_POINTING_HAND:
+        case SAGARMATHA_CURSOR_POINTING_HAND:
           cursor_type = GDK_HAND2;
           break;
-        case CINNAMON_CURSOR_DND_UNSUPPORTED_TARGET:
+        case SAGARMATHA_CURSOR_DND_UNSUPPORTED_TARGET:
           cursor_type = GDK_X_CURSOR;
           break;
         default:
@@ -679,7 +679,7 @@ sagarmatha_global_unset_cursor (SagarmathaGlobal  *global)
  * describing the input region.
  *
  * Sets the area of the stage that is responsive to mouse clicks when
- * the stage mode is %CINNAMON_STAGE_INPUT_MODE_NORMAL (but does not change the
+ * the stage mode is %SAGARMATHA_STAGE_INPUT_MODE_NORMAL (but does not change the
  * current stage mode).
  */
 void
@@ -691,7 +691,7 @@ sagarmatha_global_set_stage_input_region (SagarmathaGlobal *global,
   int nrects, i;
   GSList *r;
 
-  g_return_if_fail (CINNAMON_IS_GLOBAL (global));
+  g_return_if_fail (SAGARMATHA_IS_GLOBAL (global));
 
   nrects = g_slist_length (rectangles);
   rects = g_new (XRectangle, nrects);
@@ -746,7 +746,7 @@ sagarmatha_global_get_screen (SagarmathaGlobal  *global)
 GdkScreen *
 sagarmatha_global_get_gdk_screen (SagarmathaGlobal *global)
 {
-  g_return_val_if_fail (CINNAMON_IS_GLOBAL (global), NULL);
+  g_return_val_if_fail (SAGARMATHA_IS_GLOBAL (global), NULL);
 
   return global->gdk_screen;
 }
@@ -772,7 +772,7 @@ sagarmatha_global_get_display (SagarmathaGlobal  *global)
 GList *
 sagarmatha_global_get_window_actors (SagarmathaGlobal *global)
 {
-  g_return_val_if_fail (CINNAMON_IS_GLOBAL (global), NULL);
+  g_return_val_if_fail (SAGARMATHA_IS_GLOBAL (global), NULL);
 
   return meta_get_window_actors (global->meta_screen);
 }
@@ -782,7 +782,7 @@ global_stage_notify_width (GObject    *gobject,
                            GParamSpec *pspec,
                            gpointer    data)
 {
-  SagarmathaGlobal *global = CINNAMON_GLOBAL (data);
+  SagarmathaGlobal *global = SAGARMATHA_GLOBAL (data);
 
   g_object_notify (G_OBJECT (global), "screen-width");
 }
@@ -792,7 +792,7 @@ global_stage_notify_height (GObject    *gobject,
                             GParamSpec *pspec,
                             gpointer    data)
 {
-  SagarmathaGlobal *global = CINNAMON_GLOBAL (data);
+  SagarmathaGlobal *global = SAGARMATHA_GLOBAL (data);
 
   g_object_notify (G_OBJECT (global), "screen-height");
 }
@@ -1060,7 +1060,7 @@ void
 _sagarmatha_global_set_plugin (SagarmathaGlobal *global,
                           MetaPlugin  *plugin)
 {
-  g_return_if_fail (CINNAMON_IS_GLOBAL (global));
+  g_return_if_fail (SAGARMATHA_IS_GLOBAL (global));
   g_return_if_fail (global->plugin == NULL);
 
   global->plugin = plugin;
@@ -1494,7 +1494,7 @@ sagarmatha_global_notify_error (SagarmathaGlobal  *global,
 static void
 grab_notify (GtkWidget *widget, gboolean was_grabbed, gpointer user_data)
 {
-  SagarmathaGlobal *global = CINNAMON_GLOBAL (user_data);
+  SagarmathaGlobal *global = SAGARMATHA_GLOBAL (user_data);
   
   global->gtk_grab_active = !was_grabbed;
 

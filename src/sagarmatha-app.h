@@ -1,6 +1,6 @@
 /* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-#ifndef __CINNAMON_APP_H__
-#define __CINNAMON_APP_H__
+#ifndef __SAGARMATHA_APP_H__
+#define __SAGARMATHA_APP_H__
 
 #include <clutter/clutter.h>
 #include <gio/gio.h>
@@ -14,12 +14,12 @@ typedef struct _SagarmathaApp SagarmathaApp;
 typedef struct _SagarmathaAppClass SagarmathaAppClass;
 typedef struct _SagarmathaAppPrivate SagarmathaAppPrivate;
 
-#define CINNAMON_TYPE_APP              (sagarmatha_app_get_type ())
-#define CINNAMON_APP(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), CINNAMON_TYPE_APP, SagarmathaApp))
-#define CINNAMON_APP_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), CINNAMON_TYPE_APP, SagarmathaAppClass))
-#define CINNAMON_IS_APP(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), CINNAMON_TYPE_APP))
-#define CINNAMON_IS_APP_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CINNAMON_TYPE_APP))
-#define CINNAMON_APP_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), CINNAMON_TYPE_APP, SagarmathaAppClass))
+#define SAGARMATHA_TYPE_APP              (sagarmatha_app_get_type ())
+#define SAGARMATHA_APP(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), SAGARMATHA_TYPE_APP, SagarmathaApp))
+#define SAGARMATHA_APP_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST ((klass), SAGARMATHA_TYPE_APP, SagarmathaAppClass))
+#define SAGARMATHA_IS_APP(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), SAGARMATHA_TYPE_APP))
+#define SAGARMATHA_IS_APP_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), SAGARMATHA_TYPE_APP))
+#define SAGARMATHA_APP_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), SAGARMATHA_TYPE_APP, SagarmathaAppClass))
 
 struct _SagarmathaAppClass
 {
@@ -28,9 +28,9 @@ struct _SagarmathaAppClass
 };
 
 typedef enum {
-  CINNAMON_APP_STATE_STOPPED,
-  CINNAMON_APP_STATE_STARTING,
-  CINNAMON_APP_STATE_RUNNING
+  SAGARMATHA_APP_STATE_STOPPED,
+  SAGARMATHA_APP_STATE_STARTING,
+  SAGARMATHA_APP_STATE_RUNNING
 } SagarmathaAppState;
 
 GType sagarmatha_app_get_type (void) G_GNUC_CONST;
@@ -81,4 +81,4 @@ int sagarmatha_app_compare (SagarmathaApp *app, SagarmathaApp *other);
 
 G_END_DECLS
 
-#endif /* __CINNAMON_APP_H__ */
+#endif /* __SAGARMATHA_APP_H__ */
